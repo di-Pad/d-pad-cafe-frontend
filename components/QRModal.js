@@ -20,12 +20,15 @@ const QRModal = (props, {
               padding:'20px',
               border: '1px solid #888',
               width: '50%',
-              borderRadius: '25px'}}
-              className="flex-col justify-center"
+              borderRadius: '25px',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center'
+            }}
         >
             {/* <span className="close">&times;</span> */}
-            <div className="flex-col mt-3 mb-3">
-                <div id="qrBackground" className="rounded-3xl w-8/12 pt-8 pb-4 mb-4 bg-grey-500 m-auto ">
+            <div id="qrContainer">
+                <div id="qrBackground">
                 <QRCode
                 value={JSON.stringify(props.qrCodeObj)}
                 logoImage="/dark-dito.svg"
@@ -33,18 +36,18 @@ const QRModal = (props, {
                 logoHeight={140}
                 bgColor="#E9F2D5"
                 size={420}
-                className="m-auto mb-25"
+                className="qr-code"
                 />
                 </div>
 
-                <div id="joinModalText" className="m-0 bg-white m-auto text-center pt-1 pr-3 pl-3 pb-1 rounded-2xl text-xl">
-                    <p className="">{props.modalText}</p>
+                <div id="joinModalText">
+                    <p>{props.modalText}</p>
                 </div>
                 
                 <div className="m-auto">
                     {/* DELETE THE BUTTON AFTER LONGPOLLING */}
                     <button 
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                        className="modal-button"
                         onClick={props.closeOnClick}>Close
                     </button>
                 </div>

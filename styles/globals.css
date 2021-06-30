@@ -121,6 +121,133 @@ a {
   margin: 5px;
   margin-right: 12px;
 }
+  /**** WALLET MODAL *****/
+#topDiv {
+  display: block;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8);
+}
+
+#modalWindow {
+  background-color: rgba(105,105,105, 0.75);
+  margin: 5% auto;
+  padding:20px;
+  border: 1px solid #888;
+  width: 40%;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modal-window-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.wallet-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.wallet-header img {
+  width: 40px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.wallet-header h2 {
+  text-decoration: underline;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  color: rgba(243, 244, 246, 1);
+}
+
+.wallet-modal-button {
+  display: flex;
+  justify-content: center;
+}
+
+.wallet-modal-button button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  background-color: rgba(249, 250, 251, 1);
+  padding: 3px 10px;
+  width: 12rem;
+}
+
+.wallet-modal-button img {
+  width: 22px;
+}
+
+.wallet-modal-button p {
+  padding: 2px 8px;
+  font-size: large;
+}
+
+  /**** WALLET MODAL *****/
+
+
+
+  /**** QR MODAL *****/
+
+#qrContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 8px 0;
+}
+
+#qrBackground {
+  padding-top: 8px;
+  padding-bottom: 4px;
+  margin: 0 auto;
+  margin-bottom: 4px;
+  width: 67%;
+  background-color: rgba(107, 114, 128, 1);
+  border-radius: 1.5rem;
+}
+
+.qr-code {
+  margin: 0 auto;
+  margin-bottom: 0.625rem;
+}
+
+#joinModalText {
+  width: 440px;
+  margin: 0 auto;
+  background-color: white;
+  text-align: center;
+  padding: 1px 3px 1px 3px;
+  border-radius: 20px;
+  font-size: larger;
+}
+
+.modal-button {
+  background-color: rgba(59, 130, 246, 1);
+  color: white;
+  font-weight: bold;
+  padding: 2px 4px;
+  border-radius: 2px;
+}
+
+.modal-button:hover {
+  background-color: rgba(29, 78, 216, 1);
+}
+  /**** QR MODAL *****/
+
+
 
 /******** DELETE THESE GLOBAL RULES AFTER  FIX MY GLOBAL STYLING ******/
 
