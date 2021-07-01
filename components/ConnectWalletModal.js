@@ -31,7 +31,7 @@ const ConnectWalletModal = (props) => {
     return (
         <div id="topDiv">
             <div id="modalWindow">
-                <div className="flex flex-col justify-center py-7">
+                <div className="modal-window-child">
                     <div className="wallet-header">
                         <img src="/wallet.svg"/>
                         <h2>Connect your wallet</h2>
@@ -40,8 +40,8 @@ const ConnectWalletModal = (props) => {
                     <div className="wallet-modal-button">
                         <button
                             onClick={() => showNewQRModal()}>
-                            <img src="/qr-code.svg" className="w-4" />
-                            <p className="px-2 text-xl">SkillWallet</p>
+                            <img src="/qr-code.svg"/>
+                            <p>SkillWallet</p>
                         </button>
                     </div>
                 </div>

@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import Head from 'next/head';
-import LandingButton from '../components/LandingButton';
+// import LandingButton from '../components/LandingButton'; //TODO: swap Links with LandingButton and solve <a> reference inheritance problem
 import Button from '../components/Button';
 import ConnectWallet from '../components/ConnectWalletModal';
+import Link from 'next/link';
 
 export default function Home() {
   const networkIcon = "cluster-data.png";
@@ -35,7 +36,7 @@ export default function Home() {
 
         <div className="landing-content">
           <div className="connect-wallet-container">
-            <Button onClick={toggleModal} enable={false} className="connect-wallet">
+            <Button onClick={toggleModal} enable="true" className="connect-wallet">
               <a className="flex items-center justify-center space-x-4 text-l">
                 <span>Connect Wallet</span>
               </a>
@@ -43,28 +44,42 @@ export default function Home() {
           </div>
 
           <div className="buttons">
-
             <div className="buttons-top-row">
-              <LandingButton 
-                image={networkIcon}
-                header="Integrate"
-                subHeader="SkillWallet Auth"
-                altText="SkillWallet Auth"
-                />
-              <LandingButton 
-                image={fundsIcon}
-                header="Design"
-                subHeader="Token Agreement"
-                altText="Token Agreement"
-              />
+              <Link href='/integrate'>
+                <div className="landing-button-container">
+                  <a>
+                  <div className="landing-button-text">
+                      <h2 className="heavy">Integrate</h2>
+                      <p>SkillWallet Auth</p>
+                  </div>
+                  <img src={networkIcon} alt="SkillWallet Auth"/>
+                  </a> 
+                </div>
+              </Link>
+              <Link href=''>
+                <div className="landing-button-container">
+                  <a>
+                  <div className="landing-button-text">
+                      <h2 className="heavy">Design</h2>
+                      <p>Token Agreement</p>
+                  </div>
+                  <img src={fundsIcon} alt="Token Agreement"/>
+                  </a> 
+                </div>
+              </Link>
             </div>
             <div className="buttons-bottom-row">
-            <LandingButton
-              image={serverIcon}
-              header="Web3 Native"
-              subHeader="Profit-Sharing Model"
-              altText="Profit-Sharing Model"
-            />
+              <Link href=''>
+                <div className="landing-button-container">
+                  <a>
+                  <div className="landing-button-text">
+                      <h2 className="heavy">Web3 Native</h2>
+                      <p>Profit-Sharing Model</p>
+                  </div>
+                  <img src={serverIcon} alt="Profit-Sharing Model"/>
+                  </a> 
+                </div>
+              </Link>
             </div>
           </div>
           { showModal ? <ConnectWallet key={'connect'} toggleModal={toggleModal} /> : null}
