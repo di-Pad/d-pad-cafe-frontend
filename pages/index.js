@@ -1,6 +1,17 @@
-import Head from 'next/head'
+import { useState } from 'react';
+import Head from 'next/head';
+// import LandingButton from '../components/LandingButton'; //TODO: swap Links with LandingButton and solve <a> reference inheritance problem
+import Button from '../components/Button';
+import ConnectWallet from '../components/ConnectWalletModal';
+import Link from 'next/link';
 
 export default function Home() {
+  const networkIcon = "cluster-data.png";
+  const fundsIcon = "funds.png";
+  const serverIcon = "database-server.png";
+  const [showModal, setShowModal] = useState(false);
+  const toggleModal = () => setShowModal(!showModal);
+
   return (
     <div className="container">
       <Head>
@@ -8,22 +19,71 @@ export default function Home() {
         <link rel="icon" href="/d-pad-logo.png" />
       </Head>
 
-      <main>
-        <div>
-          <p>d-Pad Cafe lets you boostrap a free, self-governed community - 
-            with native <span>Self-Sovereign ID</span> (SSID) and a <span>truly fair
+      <main className="landing-main">
+        <div className="landing-sidebar">
+          <p><b>d-Pad Café</b> lets you boostrap a free, self-governed community - 
+            with native <span className="heavy">Self-Sovereign ID</span> (SSID) and a <span className="heavy">truly fair
             tokenomics for your protocol</span>
           </p>
 
           <img src="/d-pad-logo.png"></img>
 
-          <p>Automate a <span>fair token launch</span> and/or <span>set a Native 
-            Profit-sharing model</span> to split revenues with your protocol's
+          <p>Automate a <b>fair token launch</b> and/or <b>set a Native 
+            Profit-sharing model</b> to split revenues with your protocol's
             participants (you included!)
           </p>
         </div>
 
-        <div></div>
+        <div className="landing-content">
+          <div className="connect-wallet-container">
+            <Button onClick={toggleModal} enable="true" className="connect-wallet">
+              <a className="flex items-center justify-center space-x-4 text-l">
+                <span>Connect Wallet</span>
+              </a>
+            </Button>
+          </div>
+
+          <div className="buttons">
+            <div className="buttons-top-row">
+              <Link href='/integrate'>
+                <div className="landing-button-container">
+                  <a>
+                  <div className="landing-button-text">
+                      <h2 className="heavy">Integrate</h2>
+                      <p>SkillWallet Auth</p>
+                  </div>
+                  <img src={networkIcon} alt="SkillWallet Auth"/>
+                  </a> 
+                </div>
+              </Link>
+              <Link href=''>
+                <div className="landing-button-container">
+                  <a>
+                  <div className="landing-button-text">
+                      <h2 className="heavy">Design</h2>
+                      <p>Token Agreement</p>
+                  </div>
+                  <img src={fundsIcon} alt="Token Agreement"/>
+                  </a> 
+                </div>
+              </Link>
+            </div>
+            <div className="buttons-bottom-row">
+              <Link href=''>
+                <div className="landing-button-container">
+                  <a>
+                  <div className="landing-button-text">
+                      <h2 className="heavy">Web3 Native</h2>
+                      <p>Profit-Sharing Model</p>
+                  </div>
+                  <img src={serverIcon} alt="Profit-Sharing Model"/>
+                  </a> 
+                </div>
+              </Link>
+            </div>
+          </div>
+          { showModal ? <ConnectWallet key={'connect'} toggleModal={toggleModal} /> : null}
+        </div>
       </main>
     </div>
   )

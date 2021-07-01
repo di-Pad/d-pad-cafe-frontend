@@ -2,6 +2,7 @@ html,
 body {
   padding: 0;
   margin: 0;
+  min-height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -14,3 +15,362 @@ a {
 * {
   box-sizing: border-box;
 }
+
+/******** FIX MY GLOBAL STYLING PROBLEM AND MOVE THESE INTO A LOCAL STYLESHEET ******/
+
+
+.landing-main {
+  display: flex;
+  height:100%;
+}
+
+.landing-sidebar {
+  width: 30%;
+  background-color: grey;
+}
+
+.landing-content {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+
+.connect-wallet-container {
+  height: 64px;
+  position: absolute;
+  z-index: 10;
+  width: 70%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.connect-wallet  {
+  height: 40px;
+  min-width: 20%;
+  max-width: 30%;
+  margin-right: 5%;
+  margin-top: 20px;
+  border-radius: 15px;
+}
+
+.connect-wallet:hover {
+  cursor: pointer;
+}
+
+.connect-wallet a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: calc(1rem * var(--tw-space-x-reverse));
+  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+  font-size: large;
+}
+
+.buttons-top-row {
+  display: flex;
+  justify-content: center;
+}
+
+.buttons {
+  width: 100%;
+  margin-top: 40%; 
+}
+
+.buttons-bottom-row {
+  display: flex;
+  justify-content: center;
+}
+
+.last-landing-button {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.heavy {
+  font-style: italic;
+  font-weight: bold;
+}
+
+.landing-button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 35%;
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 20px;
+  padding: 8px;
+  margin: 20px;
+}
+
+.landing-button-container:hover {
+  cursor: pointer;
+}
+
+.landing-button-container img {
+  max-width: 40px;
+  max-height: 40px;
+}
+
+.landing-button-text {
+  display: flex;
+  flex-direction: column;
+  /* width:70%; */
+}
+
+.landing-button-text h2, .landing-button-text p {
+  margin: 5px;
+  margin-right: 12px;
+}
+  /**** WALLET MODAL *****/
+#topDiv {
+  display: block;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8);
+}
+
+#modalWindow {
+  background-color: rgba(105,105,105, 0.75);
+  margin: 5% auto;
+  padding:20px;
+  border: 1px solid #888;
+  width: 40%;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modal-window-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.wallet-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.wallet-header img {
+  width: 40px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.wallet-header h2 {
+  text-decoration: underline;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  color: rgba(243, 244, 246, 1);
+}
+
+.wallet-modal-button {
+  display: flex;
+  justify-content: center;
+}
+
+.wallet-modal-button button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  background-color: rgba(249, 250, 251, 1);
+  padding: 3px 10px;
+  width: 12rem;
+}
+
+.wallet-modal-button img {
+  width: 22px;
+}
+
+.wallet-modal-button p {
+  padding: 2px 8px;
+  font-size: large;
+}
+
+  /**** WALLET MODAL *****/
+
+
+
+  /**** QR MODAL *****/
+
+#qrContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 8px 0;
+}
+
+#qrBackground {
+  padding-top: 8px;
+  padding-bottom: 4px;
+  margin: 0 auto;
+  margin-bottom: 4px;
+  width: 67%;
+  background-color: rgba(107, 114, 128, 1);
+  border-radius: 1.5rem;
+}
+
+.qr-code {
+  margin: 0 auto;
+  margin-bottom: 0.625rem;
+}
+
+#joinModalText {
+  width: 440px;
+  margin: 0 auto;
+  background-color: white;
+  text-align: center;
+  padding: 1px 3px 1px 3px;
+  border-radius: 20px;
+  font-size: larger;
+}
+
+.modal-button {
+  background-color: rgba(59, 130, 246, 1);
+  color: white;
+  font-weight: bold;
+  padding: 2px 4px;
+  border-radius: 2px;
+}
+
+.modal-button:hover {
+  background-color: rgba(29, 78, 216, 1);
+}
+  /**** QR MODAL *****/
+
+
+
+/******** DELETE THESE GLOBAL RULES AFTER  FIX MY GLOBAL STYLING ******/
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.main {
+  padding: 5rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer {
+  width: 100%;
+  height: 100px;
+  border-top: 1px solid #eaeaea;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.title a {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+.title a:hover,
+.title a:focus,
+.title a:active {
+  text-decoration: underline;
+}
+
+.title {
+  margin: 0;
+  line-height: 1.15;
+  font-size: 4rem;
+}
+
+.title,
+.description {
+  text-align: center;
+}
+
+.description {
+  line-height: 1.5;
+  font-size: 1.5rem;
+}
+
+.code {
+  background: #fafafa;
+  border-radius: 5px;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+.grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin-top: 3rem;
+}
+
+.card {
+  margin: 1rem;
+  padding: 1.5rem;
+  text-align: left;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  width: 45%;
+}
+
+.card:hover,
+.card:focus,
+.card:active {
+  color: #0070f3;
+  border-color: #0070f3;
+}
+
+.card h2 {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+}
+
+.card p {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+.logo {
+  height: 1em;
+  margin-left: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+
+/*****************************************************************/
