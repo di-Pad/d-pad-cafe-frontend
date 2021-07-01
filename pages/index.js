@@ -56,7 +56,7 @@ export default function Home() {
                   </a> 
                 </div>
               </Link>
-              <Link href=''>
+              <Link href='design'>
                 <div className="landing-button-container">
                   <a>
                   <div className="landing-button-text">
@@ -68,8 +68,9 @@ export default function Home() {
                 </div>
               </Link>
             </div>
+            
             <div className="buttons-bottom-row">
-              <Link href=''>
+              <Link href='/web3-native'>
                 <div className="landing-button-container">
                   <a>
                   <div className="landing-button-text">
