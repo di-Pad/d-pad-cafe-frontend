@@ -3,8 +3,6 @@ import Image from 'next/image';
 const Web3Native = () => {
 
     // the fixed width for the Image tag on line 18 will be a problem......
-
-
     return (
         <div className="container">
   
@@ -15,7 +13,7 @@ const Web3Native = () => {
                 <h4>_username_</h4>
             </div>
 
-            <Image className="line-26" src='/geometric-card-line-break.png' alt="line" width="200" height="2"/>
+            <Image className="line-26" src='/geometric-card-line-break.png' alt="line" width="300" height="2"/>
 
             <div className="profit-sidebar-buttons">
                 <div className="pill">
@@ -24,10 +22,18 @@ const Web3Native = () => {
                     <h4>Overview & Stats</h4>
                 </div>
 
-                <div className="pill">
+                <div className="pill contracts-pill">
                 <Image src="/d-pad-logo.png" width="55" height="40"/>
-                    <h4>Listed Contracts</h4>
-                    <div></div>
+                    <div class="listed-contracts">
+                        <h4>Listed Contracts</h4>
+                        <form>
+                            <input placeholder="0x..." ></input>
+
+                            <input placeholder="0x..." ></input>
+
+                            <input placeholder="0x..." ></input>
+                        </form>
+                    </div>
                 </div>
 
                 <div className="pill">
@@ -42,8 +48,8 @@ const Web3Native = () => {
             </div>
           </div>
 
-          <div className="landing-content">
-            <h2>Token Distribution Agreement</h2>
+          <div className="profit-content">
+            <h2 style={{textDecoration: "underline"}}>Token Distribution Agreement</h2>
 
             <p>Profit-sharing <b>is the single, most important step</b> towards <i>Progressive Decentralization and truly autonomous communities</i>. 
             The <b>d-Pad Cafe</b> makes it a 2-step process for you to kick-off an automated, Web3-Native-Profit-Sharing Agreement.
