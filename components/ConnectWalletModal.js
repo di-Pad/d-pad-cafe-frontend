@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import QRModal from '../components/QRModal';
 // import { generateNonce } from '../api/users'
 
@@ -25,7 +26,7 @@ const ConnectWalletModal = (props) => {
 
     const modalText = [
         'Scan with your ',
-        <a href="" className="underline text-blue-600 hover:text-blue-400 visited:text-purple-400" >SkillWallet App</a>,
+        <a href="" key={1} className="underline text-blue-600 hover:text-blue-400 visited:text-purple-400" >SkillWallet App</a>,
         ' to login to your community.'];
 
     return (
@@ -33,14 +34,14 @@ const ConnectWalletModal = (props) => {
             <div id="modalWindow">
                 <div className="modal-window-child">
                     <div className="wallet-header">
-                        <img src="/wallet.svg"/>
+                        <Image src="/wallet.svg" alt="wallet icon"/>
                         <h2>Connect your wallet</h2>
                     </div>
 
                     <div className="wallet-modal-button">
                         <button
                             onClick={() => showNewQRModal()}>
-                            <img src="/qr-code.svg"/>
+                            <Image src="/qr-code.svg" alt="a scan-able QR code"/>
                             <p>SkillWallet</p>
                         </button>
                     </div>

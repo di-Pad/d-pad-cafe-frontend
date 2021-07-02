@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
 // import LandingButton from '../components/LandingButton'; //TODO: swap Links with LandingButton and solve <a> reference inheritance problem
 import Button from '../components/Button';
 import ConnectWallet from '../components/ConnectWalletModal';
 import Link from 'next/link';
 
 export default function Home() {
-  const networkIcon = "cluster-data.png";
-  const fundsIcon = "funds.png";
-  const serverIcon = "database-server.png";
+  const networkIcon = "/cluster-data.png";
+  const fundsIcon = "/funds.png";
+  const serverIcon = "/database-server.png";
   const [showModal, setShowModal] = useState(false);
   const toggleModal = () => setShowModal(!showModal);
 
@@ -26,10 +27,10 @@ export default function Home() {
             tokenomics for your protocol</span>
           </p>
 
-          <img src="/d-pad-logo.png"></img>
+          <Image src="/d-pad-logo.png" width="40" height="40"></Image>
 
           <p>Automate a <b>fair token launch</b> and/or <b>set a Native 
-            Profit-sharing model</b> to split revenues with your protocol's
+            Profit-sharing model</b> to split revenues with your protocol&#39;s
             participants (you included!)
           </p>
         </div>
@@ -45,14 +46,14 @@ export default function Home() {
 
           <div className="buttons">
             <div className="buttons-top-row">
-              <Link href='/integrate'>
+              <Link href='/integrate' passHref>
                 <div className="landing-button-container">
                   <a>
                   <div className="landing-button-text">
                       <h2 className="heavy">Integrate</h2>
                       <p>SkillWallet Auth</p>
                   </div>
-                  <img src={networkIcon} alt="SkillWallet Auth"/>
+                  <Image src={networkIcon} alt="SkillWallet Auth" width="40" height="40"/>
                   </a> 
                 </div>
               </Link>
@@ -63,7 +64,7 @@ export default function Home() {
                       <h2 className="heavy">Design</h2>
                       <p>Token Agreement</p>
                   </div>
-                  <img src={fundsIcon} alt="Token Agreement"/>
+                  <Image src={fundsIcon} alt="Token Agreement" width="40" height="40"/>
                   </a> 
                 </div>
               </Link>
@@ -77,7 +78,7 @@ export default function Home() {
                       <h2 className="heavy">Web3 Native</h2>
                       <p>Profit-Sharing Model</p>
                   </div>
-                  <img src={serverIcon} alt="Profit-Sharing Model"/>
+                  <Image src={serverIcon} alt="Profit-Sharing Model" width="40" height="40"/>
                   </a> 
                 </div>
               </Link>

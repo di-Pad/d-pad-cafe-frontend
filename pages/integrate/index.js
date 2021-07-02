@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 const Integrate = () => {
     return (
     <div className="container">
@@ -6,7 +8,7 @@ const Integrate = () => {
         <div className="landing-sidebar">
           <h2>Welcome to your<span className="heavy"> Partner Agreement!</span></h2>
 
-          <img src="/d-pad-logo.png"></img>
+          <Image src="/d-pad-logo.png" width="40" height="40"></Image>
 
           <p>In just two steps, you will integrate a <b>universal, sybil-resistant login</b>
              for your users - and automate <b>an internal, mathematically-fair Tokenomics</b>
@@ -16,7 +18,7 @@ const Integrate = () => {
 
         <div className="integrate-content">
           <div>
-            <h2 className="heavy">Partner's Agreement</h2>
+            <h2 className="heavy">Partner&#39;s Agreement</h2>
             <h4>Select the template that best represents your project / protocol.</h4>
           </div>
 
@@ -24,7 +26,7 @@ const Integrate = () => {
             <div className="integrate-project-types">
                 <div className='white-card'>
                     <div className="top-card">
-                        <img className="image-7" src='opensource-defi-black.png' alt="card-logo"/>
+                        <Image className="image-7" src='/opensource-defi-black.png' alt="card-logo" width="40" height="40"/>
 
                         <div className="title-white-card raleway-bold-alto-22px">
                             <>
@@ -37,12 +39,12 @@ const Integrate = () => {
                         For researchers & web3, open-source teams, that innovate in a liberal fashion - for a more sustainable, meritocratic world.
                     </div>
 
-                    <img className="line-26" src='/geometric-card-line-break.png' alt="line" />
+                    <Image className="line-26" src='/geometric-card-line-break.png' alt="line" width="40" height="40"/>
                 </div>
 
                 <div className="white-card">
                     <div className="top-card">
-                        <img className="image-7" src='opensource-defi-black.png' alt="card-logo"/>
+                        <Image className="image-7" src='/opensource-defi-black.png' alt="card-logo" width="40" height="40"/>
 
                         <div className="title-white-card raleway-bold-alto-22px">
                             <>
@@ -55,12 +57,12 @@ const Integrate = () => {
                     Art movements, writers & creatives of all kind who use Art & provable ownership for purer forms of human interaction.
                     </div>
 
-                    <img className="line-26" src='/geometric-card-line-break.png' alt="line" />
+                    <Image className="line-26" src='/geometric-card-line-break.png' alt="line" width="40" height="40"/>
                 </div>
 
                 <div className="white-card">
                 <div className="top-card">
-                    <img className="image-7" src='opensource-defi-black.png' alt="card-logo"/>
+                    <Image className="image-7" src='/opensource-defi-black.png' alt="card-logo" width="40" height="40"/>
 
                     <div className="title-white-card raleway-bold-alto-22px">
                         <>
@@ -73,7 +75,7 @@ const Integrate = () => {
                 From support for people in need, to innovative local hubs to get together & create something greater than oneself.
                 </div>
 
-                <img className="line-26" src='/geometric-card-line-break.png' alt="line" />
+                <Image className="line-26" src='/geometric-card-line-break.png' alt="line" width="40" height="40"/>
                 </div>
             </div>
 

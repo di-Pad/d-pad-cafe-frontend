@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { forwardRef } from 'react';
 
 const LandingButton = forwardRef((props, ref) => {
@@ -11,10 +12,12 @@ const LandingButton = forwardRef((props, ref) => {
                 <h2 className="heavy">{props.header}</h2>
                 <p>{props.subHeader}</p>
             </div>
-            <img src={props.image} alt={props.altText}/>
+            <Image src={props.image} alt={props.altText}/>
             </a> 
         </div>
     );
 });
+
+LandingButton.displayName = 'LandingButton';
 
 export default LandingButton;
