@@ -39,7 +39,7 @@ const Integrate = () => {
                         For researchers & web3, open-source teams, that innovate in a liberal fashion - for a more sustainable, meritocratic world.
                     </div>
 
-                    <Image className="line-26" src='/geometric-card-line-break.png' alt="line" width="40" height="40"/>
+                    <Image className="line-26" src='/geometric-card-line-break.png' alt="line" width="40" height="2"/>
                 </div>
 
                 <div className="white-card">
@@ -57,7 +57,7 @@ const Integrate = () => {
                     Art movements, writers & creatives of all kind who use Art & provable ownership for purer forms of human interaction.
                     </div>
 
-                    <Image className="line-26" src='/geometric-card-line-break.png' alt="line" width="40" height="40"/>
+                    <Image className="line-26" src='/geometric-card-line-break.png' alt="line" width="40" height="2"/>
                 </div>
 
                 <div className="white-card">
@@ -75,7 +75,7 @@ const Integrate = () => {
                 From support for people in need, to innovative local hubs to get together & create something greater than oneself.
                 </div>
 
-                <Image className="line-26" src='/geometric-card-line-break.png' alt="line" width="40" height="40"/>
+                <Image className="line-26" src='/geometric-card-line-break.png' alt="line" width="40" height="2"/>
                 </div>
             </div>
 

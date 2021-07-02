@@ -360,6 +360,91 @@ a {
   /**** INTEGRATE PAGE *****/
 
 
+
+  /**** TOKEN DISTRIBUTION PAGE *****/
+
+.user-header {
+  display: flex;
+}
+
+.profit-sharing-agreement {
+  width: 90%;
+  margin: 0 auto;
+  border: 2px solid black;
+  border-radius: 30px;
+}
+
+.profit-sharing-controls {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 5px auto;
+}
+
+.profit-sharing-controls div {
+  display: flex;
+  flex-direction: column;
+}
+
+.design-share {
+  border: 1px solid black;
+  border-radius: 30px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 30px;
+  text-align: center;
+  font-size: large;
+  text-decoration: underline;
+}
+
+.design-sidebar-buttons > * {
+  margin: 50px 0;
+}
+
+  /**** TOKEN DISTRIBUTION PAGE *****/
+
+
+
+
+  /**** PROFIT SHARING PAGE *****/
+
+  .profit-share {
+    border: 1px solid black;
+    border-radius: 30px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 30px;
+    text-align: center;
+    font-size: large;
+    text-decoration: underline;
+  }
+  
+  .profit-sidebar-buttons > * {
+    margin: 50px 0;
+  }
+
+  .pill {
+    background-color: white;
+    display: flex;
+    border: 1px solid black;
+    border-radius: 40px;
+    justify-content: flex-start;
+    padding: 5px 0px 5px 20px;
+    margin: 40px 20px;
+  }
+
+  .pill h4 {
+    margin-left: 15px;
+    font-size: 18px;
+  }
+
+  .pill:hover {
+    cursor: pointer;
+  }
+
+  /**** PROFIT SHARING PAGE *****/
+
+
 /******** DELETE THESE GLOBAL RULES AFTER  FIX MY GLOBAL STYLING ******/
 
 .container {
