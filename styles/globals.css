@@ -395,11 +395,12 @@ a {
 .profit-sharing-controls {
   display: flex;
   justify-content: space-between;
-  width: 90%;
+  width: 100%;
   margin: 5px auto;
+  margin-bottom: 50px;
 }
 
-.profit-sharing-controls div {
+.profit-sharing-controls > div {
   display: flex;
   flex-direction: column;
 }
@@ -435,6 +436,14 @@ a {
     text-align: center;
     font-size: large;
     text-decoration: underline;
+    background-color: white;
+  }
+
+  .profit-sidebar {
+    width: 30%;
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
   }
   
   .profit-sidebar-buttons > * {
@@ -476,7 +485,63 @@ a {
     margin: 2px 0 ;
   }
 
+  .line-break {
+    margin: 0 auto;
+  }
+
+  .control-section {
+    border-right: 1px solid black;
+    margin: 0 10px;
+    padding: 0 20px;
+  }
+
+  .control-section:last-of-type {
+    border-right: 0;
+  }
+
+  .distribution-rate-buttons {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  .distribution-rate-buttons button {
+    border: 2px solid black;
+    border-radius: 35px;
+    width: 25%;
+    margin: 5px;
+    background-color: white;
+  }
+
+  .proximity-button {
+    border: 2px solid black;
+    border-radius: 25px;
+    background-color: white;
+    margin: 4px 0;
+  }
+
+  .deploy-button {
+    padding: 15px;
+    border: 2px solid black;
+    border-radius: 25px;
+    background-color: white;
+    width: 60%;
+    font-size: 18px;
+    margin-top: 10px;
+  }
+
   /**** PROFIT SHARING PAGE *****/
+
+
+
+  /**** CALENDAR *****/
+
+  .react-calendar {
+    width: 100% !important;
+  }
+
+  /**** CALENDAR *****/
+
 
 
 /******** DELETE THESE GLOBAL RULES AFTER  FIX MY GLOBAL STYLING ******/
