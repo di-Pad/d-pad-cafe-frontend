@@ -27,7 +27,7 @@ export default function Home() {
             tokenomics for your protocol</span>
           </p>
 
-          <Image src="/d-pad-logo.png" width="40" height="40"></Image>
+          <Image src="/d-pad-logo.png" alt="d-pad logo" width="40" height="40"></Image>
 
           <p>Automate a <b>fair token launch</b> and/or <b>set a Native 
             Profit-sharing model</b> to split revenues with your protocol&#39;s
@@ -57,7 +57,7 @@ export default function Home() {
                   </a> 
                 </div>
               </Link>
-              <Link href='design'>
+              <Link href='design' passHref>
                 <div className="landing-button-container">
                   <a>
                   <div className="landing-button-text">
@@ -71,7 +71,7 @@ export default function Home() {
             </div>
             
             <div className="buttons-bottom-row">
-              <Link href='/web3-native'>
+              <Link href='/web3-native' passHref>
                 <div className="landing-button-container">
                   <a>
                   <div className="landing-button-text">

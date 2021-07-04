@@ -13,7 +13,7 @@ const Web3Native = () => {
         <main className="landing-main">
           <div className="profit-sidebar">
             <div className="user-header">
-                <Image src="/d-pad-logo.png" width="55" height="40"></Image>
+                <Image src="/d-pad-logo.png" alt="d-pad logo" width="55" height="40"></Image>
                 <h4>_username_</h4>
             </div>
 
@@ -21,13 +21,13 @@ const Web3Native = () => {
 
             <div className="profit-sidebar-buttons">
                 <div className="pill">
-                    <Image src="/d-pad-logo.png" width="55" height="40"/>
+                    <Image src="/d-pad-logo.png" alt="d-pad logo" width="55" height="40"/>
 
                     <h4>Overview & Stats</h4>
                 </div>
 
                 <div className="pill contracts-pill">
-                <Image src="/d-pad-logo.png" width="55" height="40"/>
+                <Image src="/d-pad-logo.png" alt="d-pad logo" width="55" height="40"/>
                     <div className="listed-contracts">
                         <h4>Listed Contracts</h4>
                         <form>
@@ -41,12 +41,12 @@ const Web3Native = () => {
                 </div>
 
                 <div className="pill">
-                <Image src="/d-pad-logo.png" width="55" height="40"/>
+                <Image src="/d-pad-logo.png" alt="d-pad logo" width="55" height="40"/>
                     <h4>Add Contract</h4>
                 </div>
 
                 <div className="pill">
-                <Image src="/d-pad-logo.png" width="55" height="40"/>
+                <Image src="/d-pad-logo.png" alt="d-pad logo" width="55" height="40"/>
                     <h4>Log off</h4>
                 </div>
             </div>
@@ -79,7 +79,7 @@ const Web3Native = () => {
                     </div>
 
                     <div className="control-section">
-                        <h3>Interactions' Proximity Level</h3>
+                        <h3>Interactions&#39; Proximity Level</h3>
 
                         <p>Distribute your Token based on the proximity of the interactions to your protocol!</p>
 

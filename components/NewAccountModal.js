@@ -15,7 +15,7 @@ const NewAccountModal = (props, {
     backgroundColor = 'rgba(0,0,0,0.8)'
 }) => {
     
-    const createNewUser = () => {
+    const createNewUser = async () => {
         console.log('calling contract....');
         const isMumbai = await validateMumbaiNet();
         if (!isMumbai) {

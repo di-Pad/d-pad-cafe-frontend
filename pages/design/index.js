@@ -7,7 +7,7 @@ const Design = () => {
         <main className="landing-main">
           <div className="landing-sidebar">
             <div className="user-header">
-                <Image src="/d-pad-logo.png" width="40" height="40"></Image>
+                <Image src="/d-pad-logo.png" alt="d-pad logo" width="40" height="40"></Image>
                 <h4>_username_</h4>
             </div>
 
@@ -15,24 +15,24 @@ const Design = () => {
 
             <div className="design-sidebar-buttons">
                 <div className="pill">
-                    <Image src="/d-pad-logo.png" width="40" height="40"/>
+                    <Image src="/d-pad-logo.png" alt="d-pad logo" width="40" height="40"/>
 
                     <h4>Overview & Stats</h4>
                 </div>
 
                 <div className="pill">
-                <Image src="/d-pad-logo.png" width="40" height="40"/>
+                <Image src="/d-pad-logo.png" alt="d-pad logo" width="40" height="40"/>
                     <h4>Listed Contracts</h4>
                     <div></div>
                 </div>
 
                 <div className="pill">
-                <Image src="/d-pad-logo.png" width="40" height="40"/>
+                <Image src="/d-pad-logo.png" alt="d-pad logo" width="40" height="40"/>
                     <h4>Add Contract</h4>
                 </div>
 
                 <div className="pill">
-                <Image src="/d-pad-logo.png" width="40" height="40"/>
+                <Image src="/d-pad-logo.png" alt="d-pad logo" width="40" height="40"/>
                     <h4>Log off</h4>
                 </div>
             </div>

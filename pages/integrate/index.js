@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { createPartnersAgreement } from '../../api/contracts';
 
-const Integrate = () => {
+const Integrate = async () => {
     const createAgreement = () => {
         console.log('creating partners agreement....');
         const isMumbai = await validateMumbaiNet();
