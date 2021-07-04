@@ -25,7 +25,7 @@ const Integrate = () => {
         <div className="landing-sidebar">
           <h2>Welcome to your<span className="heavy"> Partner Agreement!</span></h2>
 
-          <Image src="/d-pad-logo.png" width="40" height="40"></Image>
+          <Image src="/d-pad-logo.png" alt="d-pad logo" width="40" height="40"></Image>
 
           <p>In just two steps, you will integrate a <b>universal, sybil-resistant login</b>
              for your users - and automate <b>an internal, mathematically-fair Tokenomics</b>
