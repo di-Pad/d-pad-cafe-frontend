@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { FaPlusCircle } from 'react-icons/fa';
+import { createNewUser } from '../api/contracts';
 
 const NewAccountModal = (props, {
     display = 'block',
@@ -14,8 +15,22 @@ const NewAccountModal = (props, {
     backgroundColor = 'rgba(0,0,0,0.8)'
 }) => {
     
-    const callNewContract = () => {
+    const createNewUser = () => {
         console.log('calling contract....');
+        const isMumbai = await validateMumbaiNet();
+        if (!isMumbai) {
+          openNotification(
+            "Transaction Failed!",
+            `Please switch to Mumbai network before proceeding.`,
+            false
+          );
+          return;
+        }
+        const newUser = await createNewUser();
+    }
+
+    const callContractFromMetamask = () => {
+        console.log('calling from metamask....');
     }
 
     return (
@@ -39,12 +54,12 @@ const NewAccountModal = (props, {
 
                 <div className="wallet-modal-button new-account-button">
                     <button
-                        onClick={() => callContract()}>
+                        onClick={() => callContractFromMetamask()}>
                         <Image src="/metamask.svg" alt="Metamask logo of a smiling fox" width="40" height="40"/>
                         <p>Inject from Metamask</p>
                     </button>
                     <button
-                        onClick={() => callContract()}>
+                        onClick={() => createNewUser()}>
                         <FaPlusCircle size={80}/>
                         <p>Create New Account</p>
                     </button>

@@ -1,6 +1,23 @@
 import Image from 'next/image';
+import { createPartnersAgreement } from '../../api/contracts';
 
 const Integrate = () => {
+    const createAgreement = () => {
+        console.log('creating partners agreement....');
+        const isMumbai = await validateMumbaiNet();
+        if (!isMumbai) {
+          openNotification(
+            "Transaction Failed!",
+            `Please switch to Mumbai network before proceeding.`,
+            false
+          );
+          return;
+        }
+        const newAgreement = await createPartnersAgreement();
+        console.log(newAgreement);
+        return newAgreement;
+    }
+
     return (
     <div className="container">
 
@@ -93,7 +110,7 @@ const Integrate = () => {
                 </button>
             </div>
 
-            <button className="integrate-deploy">
+            <button className="integrate-deploy" onClick={createAgreement()}>
                 Sign & Deploy 🚀
             </button>
 
