@@ -1,0 +1,67 @@
+import React from 'react';
+import Image from 'next/image';
+import { FaPlusCircle } from 'react-icons/fa';
+
+const NewAccountModal = (props, {
+    display = 'block',
+    position = 'fixed',
+    zIndex = 2,
+    left = 0,
+    top = 0,
+    width = '100%',
+    height = '100%',
+    overflow = 'auto',
+    backgroundColor = 'rgba(0,0,0,0.8)'
+}) => {
+    
+    const callNewContract = () => {
+        console.log('calling contract....');
+    }
+
+    return (
+    <div style={{ display, position, zIndex, left, top, width, height, overflow, backgroundColor}}>
+        <div style={{
+              backgroundColor: 'rgba(105,105,105, 0.85)',
+              margin: '5% auto',
+              padding:'20px',
+              border: '1px solid #888',
+              width: '50%',
+              borderRadius: '25px',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center'
+            }}
+        >
+            {/* <span className="close">&times;</span> */}
+            <div id="qrContainer">
+                <div id="qrBackground">
+
+
+                <div className="wallet-modal-button new-account-button">
+                    <button
+                        onClick={() => callContract()}>
+                        <Image src="/metamask.svg" alt="Metamask logo of a smiling fox" width="40" height="40"/>
+                        <p>Inject from Metamask</p>
+                    </button>
+                    <button
+                        onClick={() => callContract()}>
+                        <FaPlusCircle size={80}/>
+                        <p>Create New Account</p>
+                    </button>
+                </div>
+                
+                {/* <div className="m-auto">
+                    // DELETE THE BUTTON AFTER LONGPOLLING 
+                    <button 
+                        className="modal-button"
+                        onClick={props.closeOnClick}>Close
+                    </button>
+                </div> */}
+            </div>
+        </div>
+    </div>
+    </div>
+    )
+}
+
+export default NewAccountModal;
