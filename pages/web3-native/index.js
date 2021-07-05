@@ -110,11 +110,11 @@ const Web3Native = () => {
 
                         <form>
                             <input type="radio" value="10%" name="profit" />
-                            <label for="vehicle1"> 10%</label><br></br>
+                            <label > 10%</label><br></br>
                             <input type="radio" value="30%" name="profit"/>
-                            <label for="vehicle1"> 30%</label><br></br>
+                            <label > 30%</label><br></br>
                             <input type="radio" value="50%" name="profit"/>
-                            <label for="vehicle1"> 50%</label><br></br>
+                            <label > 50%</label><br></br>
                         </form>
 
                         <h3>Frequency of Distribution</h3>
