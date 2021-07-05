@@ -6,6 +6,26 @@ import { createPartnersAgreement, validateMumbaiNet } from '../../api/contracts'
 
 const Web3Native = () => {
     const [value, onChange] = useState(new Date());
+    // const [clickedButtonIndex, setClickedButtonIndex] = useState(null);
+
+    // useEffect(() => {
+    //     let el = '';
+    //     if (clickedButtonIndex) {
+    //         if (clickedButtonIndex === 1) {
+    //             el = document.getElementById('button1');
+    //         } else if (clickedButtonIndex === 2) {
+    //             el = document.getElementById('button2');
+    //         } else if (clickedButtonIndex === 3) {
+    //             const el = document.getElementById('button3');
+    //             el.style = {backgroundColor: "black", color: 'white'};
+    //             return;
+    //         } else {
+    //             return;
+    //         }
+    //         el.style = {backgroundColor: "black", color: 'white'};
+    //         return;
+    //     }
+    // }, [clickedButtonIndex]);
 
     const handleProfitSharing = async () => {
         console.log('profit sharing called!');
@@ -82,11 +102,20 @@ const Web3Native = () => {
 
                         <p>Tot. Profit (%) to share:</p>
 
-                        <div className="total-profit-buttons">
-                            <button>10%</button>
-                            <button>30%</button>
-                            <button>50%</button>
-                        </div>
+                        {/* <div className="total-profit-buttons">
+                            <button onClick={setClickedButtonIndex(1)} id="button1">10%</button>
+                            <button onClick={setClickedButtonIndex(2)} id="button2">30%</button>
+                            <button onClick={setClickedButtonIndex(3)} id="button3">50%</button>
+                        </div> */}
+
+                        <form>
+                            <input type="radio" value="10%" name="profit" />
+                            <label for="vehicle1"> 10%</label><br></br>
+                            <input type="radio" value="30%" name="profit"/>
+                            <label for="vehicle1"> 30%</label><br></br>
+                            <input type="radio" value="50%" name="profit"/>
+                            <label for="vehicle1"> 50%</label><br></br>
+                        </form>
 
                         <h3>Frequency of Distribution</h3>
                         <p>How often would you like the Profit-Sharing distribution to happen? No worries, we&#39;ll optimize if for you,

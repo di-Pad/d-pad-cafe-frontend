@@ -15,19 +15,21 @@ const Integrate = () => {
     };
 
     const createAgreement = async () => {
-        console.log('creating partners agreement....');
-        const isMumbai = await validateMumbaiNet();
-        if (!isMumbai) {
-          openNotification(
-            "Transaction Failed!",
-            `Please switch to Mumbai network before proceeding.`,
-            false
-          );
-          return;
-        }
-        const newAgreement = await createPartnersAgreement(userContractAddress);
-        console.log(newAgreement);
-        return newAgreement;
+        // console.log('creating partners agreement....');
+        // const isMumbai = await validateMumbaiNet();
+        // if (!isMumbai) {
+        //   openNotification(
+        //     "Transaction Failed!",
+        //     `Please switch to Mumbai network before proceeding.`,
+        //     false
+        //   );
+        //   return;
+        // }
+        // const newAgreement = await createPartnersAgreement(userContractAddress);
+        // console.log(newAgreement);
+        // return newAgreement;
+        const el = document.getElementById('integrate-deploy');
+        el.style={backgroundColor: "black", color: "white"};
     }
 
     return (
@@ -177,8 +179,8 @@ const Integrate = () => {
                 </button>
             </div>
 
-            <button className="integrate-deploy" 
-            // onClick={createAgreement()}
+            <button className="integrate-deploy" id="integrate-deploy"
+            onClick={createAgreement}
             // 'window' is undefined when I call Mumbai
             >
                 Sign & Deploy 🚀
