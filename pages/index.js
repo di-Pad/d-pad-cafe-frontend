@@ -4,6 +4,7 @@ import Image from 'next/image';
 // import LandingButton from '../components/LandingButton'; //TODO: swap Links with LandingButton and solve <a> reference inheritance problem
 import Button from '../components/Button';
 import ConnectWallet from '../components/ConnectWalletModal';
+import QRModalWithRouting from '../components/QRModalWithRouting';
 import Link from 'next/link';
 
 export default function Home() {
@@ -12,6 +13,20 @@ export default function Home() {
   const serverIcon = "/database-server.png";
   const [showModal, setShowModal] = useState(false);
   const toggleModal = () => setShowModal(!showModal);
+  const [showQRModal, setShowQRModal] = useState(false);
+  const showNewQRModal = () => {
+    setShowQRModal(!showQRModal);
+};
+
+const closeQR = () => {
+  setShowQRModal(!showQRModal);
+  toggleModal();
+}
+
+const modalText = [
+  'Scan with your ',
+  <a href="" key={1} className="underline text-blue-600 hover:text-blue-400 visited:text-purple-400" >SkillWallet App</a>,
+  ' to login to your community.'];
 
   return (
     <div className="container">
@@ -71,8 +86,8 @@ export default function Home() {
             </div>
             
             <div className="buttons-bottom-row">
-              <Link href='/web3-native' passHref>
-                <div className="landing-button-container">
+              {/* <Link href='/web3-native' passHref> */}
+                <div className="landing-button-container" onClick={() => showNewQRModal()}>
                   <a>
                   <div className="landing-button-text">
                       <h2 className="heavy">Web3 Native</h2>
@@ -81,12 +96,22 @@ export default function Home() {
                   <Image src={serverIcon} alt="Profit-Sharing Model" width="40" height="40"/>
                   </a> 
                 </div>
-              </Link>
+              {/* </Link> */}
             </div>
           </div>
           { showModal ? <ConnectWallet key={'connect'} toggleModal={toggleModal} /> : null}
         </div>
       </main>
+      { showQRModal
+            ? <QRModalWithRouting
+                key={'qr'}
+                closeOnClick={closeQR}
+                modalText={modalText}
+                // qrCodeObj={
+                //     { nonce }
+                // } 
+                />
+            : null}
     </div>
   )
 }

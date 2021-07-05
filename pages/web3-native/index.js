@@ -2,10 +2,25 @@ import Image from 'next/image';
 import Calendar from 'react-calendar';
 import { useState } from 'react';
 import 'react-calendar/dist/Calendar.css';
+import { createPartnersAgreement, validateMumbaiNet } from '../../api/contracts';
 
 const Web3Native = () => {
     const [value, onChange] = useState(new Date());
 
+    const handleProfitSharing = async () => {
+        console.log('profit sharing called!');
+        // const isMumbai = await validateMumbaiNet();
+        // if (!isMumbai) {
+        //   openNotification(
+        //     "Transaction Failed!",
+        //     `Please switch to Mumbai network before proceeding.`,
+        //     false
+        //   );
+        //   return;
+        // }
+        const newAgreement = await createPartnersAgreement();
+        return newAgreement;
+    };
 
     return (
         <div className="container">
@@ -109,7 +124,7 @@ const Web3Native = () => {
 
                 <button className="deploy-button">Click to Deploy your Treasury Contract</button>
 
-                <button className="profit-share" onClick={() => console.log(value.getMonth())}>Start Sharing 🚀</button>
+                <button className="profit-share" onClick={handleProfitSharing}>Start Sharing 🚀</button>
             </div>
 
           </div>

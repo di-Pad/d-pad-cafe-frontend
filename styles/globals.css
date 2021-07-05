@@ -29,6 +29,17 @@ a {
   background-color: grey;
 }
 
+.landing-sidebar > h2, .landing-sidebar > p {
+  width: 85%;
+  margin: 10px auto;
+}
+
+.landing-sidebar > div {
+  width: 40%;
+  height: 20%;
+  margin: 10px auto;
+}
+
 .landing-content {
   width: 70%;
   display: flex;
@@ -271,7 +282,33 @@ a {
   margin: 0 15px;
 }
 
-.white-card {
+.template-card-black {
+  align-items: center;
+  background-color: black;
+  color: white;  
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 286px;
+  padding: 16px;
+}
+
+.template-card-white {
+  align-items: center;
+  background-color: white;
+  color: #1b1c1d;  
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 286px;
+  padding: 16px;
+}
+
+.template-card-black:hover, .template-card-white:hover {
+  cursor: pointer;
+}
+
+.template-card {
   align-items: center;
   background-color: white;
   color: #1b1c1d;  
@@ -303,6 +340,16 @@ a {
   color:black;
 }
 
+.title-black-card {
+  letter-spacing: 0.15px;
+  line-height: 22px;
+  min-height: 54px;
+  min-width: 144px;
+  text-align: left;
+  white-space: nowrap;
+  color: white !important;
+}
+
 .raleway-bold-alto-22px {
   color: black;
   font-size: 22px;
@@ -330,6 +377,17 @@ a {
   min-height: 15vw;
 }
 
+.description-black-card {
+  letter-spacing: 0px;
+  line-height: 24px;
+  text-align: left;
+  flex: 1;
+  width: 100%;
+  padding: 20px;
+  color:white;
+  min-height: 15vw;
+}
+
 .integrate-project-types {
   display: flex;
 }
@@ -345,6 +403,10 @@ a {
 .bootstrap-button p {
   text-decoration: underline;
 }
+
+.importYourContract:hover {
+  cursor: pointer;
+} 
 
 .integrate-button-panel {
   display: flex;
@@ -369,6 +431,10 @@ a {
   text-align: center;
   font-size: large;
   text-decoration: underline;
+}
+
+.integrate-deploy:hover {
+  cursor: pointer;
 }
 
   /**** INTEGRATE PAGE *****/
@@ -453,6 +519,10 @@ a {
     background-color: white;
   }
 
+  .profit-share:hover {
+    cursor: pointer;
+  }
+
   .profit-sidebar {
     width: 30%;
     background-color: grey;
@@ -529,6 +599,10 @@ a {
     width: 25%;
     margin: 5px;
     background-color: white;
+  }
+
+  .distribution-rate-buttons button:hover, .total-profit-buttons button:hover, .proximity-button:hover {
+    cursor: pointer;
   }
 
   .proximity-button {

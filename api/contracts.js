@@ -1,7 +1,7 @@
 import { ethers } from 'ethers'
 
-const { communityABI } = require('../contracts/abi/ICommunity.abi.json');
-const { partnersRegistryABI } = require('../contracts/abi/PartnersRegistry.abi.json');
+var communityABI = require('../contracts/abi/ICommunity.abi.json').abi;
+var partnersRegistryABI = require('../contracts/abi/PartnersRegistry.abi.json').abi;
 
 export const validateMumbaiNet = async () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -12,15 +12,22 @@ export const validateMumbaiNet = async () => {
     return true;
   }
 
-export const createPartnersAgreement = async (partnerAddress) => {
+export const createPartnersAgreement = async () => {
+  if (!window.ethereum.selectedAddress) {
+    await window.ethereum.enable()
+  };
+
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const network = await provider.getNetwork();
-    if (network.name !== 'mumbai') {
-      return false;
-    }
+    // if (network.name !== 'mumbai') {
+    //   return false;
+    // }
     const signer = provider.getSigner();
+    console.log(provider, network, signer);
 
-    const contract = new ethers.Contract(
+    // cannot read property 'map' of undefined...
+
+    const contract = new ethers.Contract( 
         '0x68565f98f7d565A3019ED6EB5dA921156Ff7ab10',
         partnersRegistryABI,
         signer,
@@ -31,7 +38,7 @@ export const createPartnersAgreement = async (partnerAddress) => {
         0,
         2,
         10,
-        partnerAddress,
+        '0x1d08c93724741eE0E43ac9D623A127F48B16c2a8',
         5
       );
 

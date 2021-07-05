@@ -8,7 +8,7 @@ import { FaPlusCircle } from 'react-icons/fa';
 const ConnectWalletModal = (props) => {
     const [showQRModal, setShowQRModal] = useState(false);
     const [showAccountModal, setShowAccountModal] = useState(false);
-    const [nonce, setNonce] = useState();
+    // const [nonce, setNonce] = useState();
 
     const showNewQRModal = () => {
         setShowQRModal(!showQRModal);
@@ -78,9 +78,6 @@ const ConnectWalletModal = (props) => {
                     key={'newAccount'}
                     closeOnClick={closeQR}
                     modalText={modalText}
-                    // qrCodeObj={
-                    //     { nonce }
-                    // } 
                     />
                 : null}
         </div>

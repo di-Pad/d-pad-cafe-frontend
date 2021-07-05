@@ -6,6 +6,7 @@ import VerifyOwnershipModal from "../../components/VerifyOwnershipModal";
 
 const Integrate = () => {
     const [showModal, setShowModal] = useState(false);
+    const [selectedTemplate, setSelectedTemplate] = useState('open-source');
     let userContractAddress = '';
 
     const toggleModal = (address) => {
@@ -52,7 +53,23 @@ const Integrate = () => {
 
           <div className="integrate-template-content">
             <div className="integrate-project-types">
-                <div className='white-card'>
+            {selectedTemplate === 'open-source' ? 
+                <div className='template-card-black' onClick={() => setSelectedTemplate('open-source')}>
+                        <div className="top-card">
+                            <Image className="image-7" src='/opensource-defi-white.png' alt="card-logo" width="40" height="40"/>
+
+                            <div className="raleway-bold-alto-22px title-black-card">
+                            Open-Source & DeFi
+                            </div>
+                        </div>
+
+                        <div className="description-black-card raleway-normal-alto-18px">
+                            For researchers & web3, open-source teams, that innovate in a liberal fashion - for a more sustainable, meritocratic world.
+                        </div>
+
+                        <Image className="line-26" src='/geometric-card-line-break.png' alt="line" width="40" height="2"/>
+                </div> : 
+                <div className='template-card-white' onClick={() => setSelectedTemplate('open-source')}>
                     <div className="top-card">
                         <Image className="image-7" src='/opensource-defi-black.png' alt="card-logo" width="40" height="40"/>
 
@@ -69,8 +86,27 @@ const Integrate = () => {
 
                     <Image className="line-26" src='/geometric-card-line-break.png' alt="line" width="40" height="2"/>
                 </div>
+                        }
 
-                <div className="white-card">
+            {selectedTemplate === 'art' ? 
+                <div className="template-card-black" onClick={() => setSelectedTemplate('art')}>
+                    <div className="top-card">
+                        <Image className="image-7" src='/opensource-defi-white.png' alt="card-logo" width="40" height="40"/>
+
+                        <div className="title-black-card raleway-bold-alto-22px">
+                            <>
+                        Art, Events & NFTs
+                            </>
+                        </div>
+                    </div>
+
+                    <div className="description-black-card raleway-normal-alto-18px">
+                    Art movements, writers & creatives of all kind who use Art & provable ownership for purer forms of human interaction.
+                    </div>
+
+                    <Image className="line-26" src='/geometric-card-line-break.png' alt="line" width="40" height="2"/>
+                </div> : 
+                <div className="template-card-white" onClick={() => setSelectedTemplate('art')}>
                     <div className="top-card">
                         <Image className="image-7" src='/opensource-defi-black.png' alt="card-logo" width="40" height="40"/>
 
@@ -87,24 +123,44 @@ const Integrate = () => {
 
                     <Image className="line-26" src='/geometric-card-line-break.png' alt="line" width="40" height="2"/>
                 </div>
+                        }
 
-                <div className="white-card">
-                <div className="top-card">
-                    <Image className="image-7" src='/opensource-defi-black.png' alt="card-logo" width="40" height="40"/>
+            {selectedTemplate === 'local' ?
+                <div className="template-card-black" onClick={() => setSelectedTemplate('local')}>
+                    <div className="top-card">
+                        <Image className="image-7" src='/opensource-defi-white.png' alt="card-logo" width="40" height="40"/>
 
-                    <div className="title-white-card raleway-bold-alto-22px">
-                        <>
-                    Local Projects & DAOs
-                        </>
+                        <div className="title-black-card raleway-bold-alto-22px">
+                            <>
+                        Local Projects & DAOs
+                            </>
+                        </div>
                     </div>
-                </div>
 
-                <div className="description-white-card raleway-normal-alto-18px">
-                From support for people in need, to innovative local hubs to get together & create something greater than oneself.
-                </div>
+                    <div className="description-black-card raleway-normal-alto-18px">
+                    From support for people in need, to innovative local hubs to get together & create something greater than oneself.
+                    </div>
 
-                <Image className="line-26" src='/geometric-card-line-break.png' alt="line" width="40" height="2"/>
+                    <Image className="line-26" src='/geometric-card-line-break.png' alt="line" width="40" height="2"/>
+                </div>    :
+        <div className="template-card-white" onClick={() => setSelectedTemplate('local')}>
+            <div className="top-card">
+                <Image className="image-7" src='/opensource-defi-black.png' alt="card-logo" width="40" height="40"/>
+
+                <div className="title-white-card raleway-bold-alto-22px">
+                    <>
+                Local Projects & DAOs
+                    </>
                 </div>
+            </div>
+
+            <div className="description-white-card raleway-normal-alto-18px">
+            From support for people in need, to innovative local hubs to get together & create something greater than oneself.
+            </div>
+
+            <Image className="line-26" src='/geometric-card-line-break.png' alt="line" width="40" height="2"/>
+            </div>
+        }
             </div>
 
             <div className="bootstrap-button">
@@ -116,7 +172,7 @@ const Integrate = () => {
                 Start from Scratch
                 </button>
 
-                <button onClick={toggleModal}>
+                <button onClick={toggleModal} className="importYourContract">
                 Import your Contract
                 </button>
             </div>

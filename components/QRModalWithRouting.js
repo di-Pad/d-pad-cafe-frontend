@@ -1,7 +1,8 @@
 import React, {useEffect} from 'react';
 import { QRCode } from 'react-qrcode-logo';
+import { useRouter } from 'next/router';
 
-const QRModal = (props, {
+const QRModalWithRouting = (props, {
     display = 'block',
     position = 'fixed',
     zIndex = 2,
@@ -12,10 +13,11 @@ const QRModal = (props, {
     overflow = 'auto',
     backgroundColor = 'rgba(0,0,0,0.8)'
 }) => {
+    const router = useRouter();
 
     useEffect(() => {
-        const timeout = setTimeout(() => {
-           props.closeOnClick();
+         const timeout2 = setTimeout(() => {
+             router.push('/web3-native');
          }, 5000);
        },[]);
     return (
@@ -63,4 +65,4 @@ const QRModal = (props, {
     )
 }
 
-export default QRModal;
+export default QRModalWithRouting;
