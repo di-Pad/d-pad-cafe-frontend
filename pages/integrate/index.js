@@ -1,7 +1,18 @@
 import Image from 'next/image';
-import { createPartnersAgreement } from '../../api/contracts';
+import { useState } from 'react';
+import { createPartnersAgreement, validateMumbaiNet } from '../../api/contracts';
+import { openNotification } from "../../utils/common-functions";
+import VerifyOwnershipModal from "../../components/VerifyOwnershipModal";
 
 const Integrate = () => {
+    const [showModal, setShowModal] = useState(false);
+    let userContractAddress = '';
+
+    const toggleModal = (address) => {
+        userContractAddress = address;
+        setShowModal(!showModal)
+    };
+
     const createAgreement = async () => {
         console.log('creating partners agreement....');
         const isMumbai = await validateMumbaiNet();
@@ -13,7 +24,7 @@ const Integrate = () => {
           );
           return;
         }
-        const newAgreement = await createPartnersAgreement();
+        const newAgreement = await createPartnersAgreement(userContractAddress);
         console.log(newAgreement);
         return newAgreement;
     }
@@ -105,18 +116,22 @@ const Integrate = () => {
                 Start from Scratch
                 </button>
 
-                <button>
+                <button onClick={toggleModal}>
                 Import your Contract
                 </button>
             </div>
 
-            <button className="integrate-deploy" onClick={createAgreement()}>
+            <button className="integrate-deploy" 
+            // onClick={createAgreement()}
+            // 'window' is undefined when I call Mumbai
+            >
                 Sign & Deploy 🚀
             </button>
 
           </div>
         </div>
       </main>
+      { showModal ? <VerifyOwnershipModal key={'verify'} toggleModal={toggleModal} /> : null}
     </div>
     )
 }

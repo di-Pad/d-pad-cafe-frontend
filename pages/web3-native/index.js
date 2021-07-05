@@ -53,7 +53,7 @@ const Web3Native = () => {
           </div>
 
           <div className="profit-content">
-            <h2 style={{textDecoration: "underline"}}>Token Distribution Agreement</h2>
+            <h2 style={{textDecoration: "underline"}}>Native Profit-Sharing (PS) Agreement</h2>
 
             <p>Profit-sharing <b>is the single, most important step</b> towards <i>Progressive Decentralization and truly autonomous communities</i>. 
             The <b>d-Pad Cafe</b> makes it a 2-step process for you to kick-off an automated, Web3-Native-Profit-Sharing Agreement.
@@ -66,6 +66,12 @@ const Web3Native = () => {
                         <h3>Distribution Rate</h3>
 
                         <p>Tot. Profit (%) to share:</p>
+
+                        <div className="total-profit-buttons">
+                            <button>10%</button>
+                            <button>30%</button>
+                            <button>50%</button>
+                        </div>
 
                         <h3>Frequency of Distribution</h3>
                         <p>How often would you like the Profit-Sharing distribution to happen? No worries, we&#39;ll optimize if for you,

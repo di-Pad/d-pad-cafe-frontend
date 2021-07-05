@@ -12,7 +12,7 @@ export const validateMumbaiNet = async () => {
     return true;
   }
 
-export const createPartnersAgreement = async () => {
+export const createPartnersAgreement = async (partnerAddress) => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const network = await provider.getNetwork();
     if (network.name !== 'mumbai') {
@@ -31,7 +31,7 @@ export const createPartnersAgreement = async () => {
         0,
         2,
         10,
-        '0x68565f98f7d565A3019ED6EB5dA921156Ff7ab10',   //? partners contract address?
+        partnerAddress,
         5
       );
 

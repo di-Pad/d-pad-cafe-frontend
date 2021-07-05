@@ -513,13 +513,17 @@ a {
     border-right: 0;
   }
 
+  .total-profit-buttons {
+    display: flex;
+  }
+
   .distribution-rate-buttons {
     display: flex;
     justify-content: center;
     flex-direction: row;
   }
 
-  .distribution-rate-buttons button {
+  .distribution-rate-buttons button, .total-profit-buttons button {
     border: 2px solid black;
     border-radius: 35px;
     width: 25%;

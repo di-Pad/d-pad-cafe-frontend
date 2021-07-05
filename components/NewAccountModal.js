@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { FaPlusCircle } from 'react-icons/fa';
 import { createNewUser } from '../api/contracts';
+import { openNotification } from "../utils/common-functions";
 
 const NewAccountModal = (props, {
     display = 'block',
