@@ -291,6 +291,7 @@ a {
   flex-direction: column;
   min-height: 286px;
   padding: 16px;
+  border-right: 1px solid black;
 }
 
 .template-card-white {
@@ -302,6 +303,7 @@ a {
   flex-direction: column;
   min-height: 286px;
   padding: 16px;
+  border-right: 1px solid black;
 }
 
 .template-card-black:hover, .template-card-white:hover {
@@ -389,6 +391,10 @@ a {
 }
 
 .integrate-project-types {
+  display: flex;
+}
+
+.top-row {
   display: flex;
 }
 

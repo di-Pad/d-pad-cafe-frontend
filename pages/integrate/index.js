@@ -1,12 +1,14 @@
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { createPartnersAgreement, validateMumbaiNet } from '../../api/contracts';
 import { openNotification } from "../../utils/common-functions";
 import VerifyOwnershipModal from "../../components/VerifyOwnershipModal";
+import PartnersAgreementTemplateOptions from '../../components/PartnersAgreementTemplateOptions';
 
 const Integrate = () => {
     const [showModal, setShowModal] = useState(false);
-    const [selectedTemplate, setSelectedTemplate] = useState('open-source');
+    const [selectedTemplate, setSelectedTemplate] = useState(null);
+    const [templateOptions, setTemplateOptions] = useState(null);
     let userContractAddress = '';
 
     const toggleModal = (address) => {
@@ -32,6 +34,29 @@ const Integrate = () => {
         el.style={backgroundColor: "black", color: "white"};
     }
 
+    useEffect(() => {
+        const openSource = {
+            imageSrc: '/opensource-defi-white.png',
+            header: 'Open-Source & DeFi',
+            description: 'For researchers & web3, open-source teams, that innovate in a liberal fashion - for a more sustainable, meritocratic world.'}
+        const art = {
+            imageSrc: '/opensource-defi-white.png',
+            header: 'Art, Events & NFTs',
+            description: 'Art movements, writers & creatives of all kind who use Art & provable ownership for purer forms of human interaction.'}
+        const local = {
+            imageSrc: '/opensource-defi-white.png',
+            header: 'Local Projects & DAOs',
+            description: 'From support for people in need, to innovative local hubs to get together & create something greater than oneself.'}
+
+        if (selectedTemplate === 'open-source') {
+            setTemplateOptions(openSource);
+        } else if (selectedTemplate === 'art') {
+            setTemplateOptions(art);
+        } else if (selectedTemplate === 'local') {
+            setTemplateOptions(local);
+        }
+    }, [selectedTemplate]);
+
     return (
     <div className="container">
 
@@ -54,23 +79,9 @@ const Integrate = () => {
           </div>
 
           <div className="integrate-template-content">
+              
+            { templateOptions === null ? 
             <div className="integrate-project-types">
-            {selectedTemplate === 'open-source' ? 
-                <div className='template-card-black' onClick={() => setSelectedTemplate('open-source')}>
-                        <div className="top-card">
-                            <Image className="image-7" src='/opensource-defi-white.png' alt="card-logo" width="40" height="40"/>
-
-                            <div className="raleway-bold-alto-22px title-black-card">
-                            Open-Source & DeFi
-                            </div>
-                        </div>
-
-                        <div className="description-black-card raleway-normal-alto-18px">
-                            For researchers & web3, open-source teams, that innovate in a liberal fashion - for a more sustainable, meritocratic world.
-                        </div>
-
-                        <Image className="line-26" src='/geometric-card-line-break.png' alt="line" width="40" height="2"/>
-                </div> : 
                 <div className='template-card-white' onClick={() => setSelectedTemplate('open-source')}>
                     <div className="top-card">
                         <Image className="image-7" src='/opensource-defi-black.png' alt="card-logo" width="40" height="40"/>
@@ -88,26 +99,7 @@ const Integrate = () => {
 
                     <Image className="line-26" src='/geometric-card-line-break.png' alt="line" width="40" height="2"/>
                 </div>
-                        }
 
-            {selectedTemplate === 'art' ? 
-                <div className="template-card-black" onClick={() => setSelectedTemplate('art')}>
-                    <div className="top-card">
-                        <Image className="image-7" src='/opensource-defi-white.png' alt="card-logo" width="40" height="40"/>
-
-                        <div className="title-black-card raleway-bold-alto-22px">
-                            <>
-                        Art, Events & NFTs
-                            </>
-                        </div>
-                    </div>
-
-                    <div className="description-black-card raleway-normal-alto-18px">
-                    Art movements, writers & creatives of all kind who use Art & provable ownership for purer forms of human interaction.
-                    </div>
-
-                    <Image className="line-26" src='/geometric-card-line-break.png' alt="line" width="40" height="2"/>
-                </div> : 
                 <div className="template-card-white" onClick={() => setSelectedTemplate('art')}>
                     <div className="top-card">
                         <Image className="image-7" src='/opensource-defi-black.png' alt="card-logo" width="40" height="40"/>
@@ -125,45 +117,33 @@ const Integrate = () => {
 
                     <Image className="line-26" src='/geometric-card-line-break.png' alt="line" width="40" height="2"/>
                 </div>
-                        }
 
-            {selectedTemplate === 'local' ?
-                <div className="template-card-black" onClick={() => setSelectedTemplate('local')}>
+                <div className="template-card-white" onClick={() => setSelectedTemplate('local')}>
                     <div className="top-card">
-                        <Image className="image-7" src='/opensource-defi-white.png' alt="card-logo" width="40" height="40"/>
+                        <Image className="image-7" src='/opensource-defi-black.png' alt="card-logo" width="40" height="40"/>
 
-                        <div className="title-black-card raleway-bold-alto-22px">
+                        <div className="title-white-card raleway-bold-alto-22px">
                             <>
                         Local Projects & DAOs
                             </>
                         </div>
                     </div>
 
-                    <div className="description-black-card raleway-normal-alto-18px">
+                    <div className="description-white-card raleway-normal-alto-18px">
                     From support for people in need, to innovative local hubs to get together & create something greater than oneself.
                     </div>
 
                     <Image className="line-26" src='/geometric-card-line-break.png' alt="line" width="40" height="2"/>
-                </div>    :
-        <div className="template-card-white" onClick={() => setSelectedTemplate('local')}>
-            <div className="top-card">
-                <Image className="image-7" src='/opensource-defi-black.png' alt="card-logo" width="40" height="40"/>
-
-                <div className="title-white-card raleway-bold-alto-22px">
-                    <>
-                Local Projects & DAOs
-                    </>
                 </div>
-            </div>
 
-            <div className="description-white-card raleway-normal-alto-18px">
-            From support for people in need, to innovative local hubs to get together & create something greater than oneself.
-            </div>
+                    </div> :
 
-            <Image className="line-26" src='/geometric-card-line-break.png' alt="line" width="40" height="2"/>
-            </div>
-        }
-            </div>
+            <PartnersAgreementTemplateOptions 
+                headerImage= {templateOptions.imageSrc}
+                header= {templateOptions.header}
+                description={templateOptions.description}
+            /> }
+
 
             <div className="bootstrap-button">
                 <p>Bootstrap your Community Economy</p>
