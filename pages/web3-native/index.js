@@ -154,7 +154,7 @@ const Web3Native = () => {
                                     className={`${className}`}
                                     name={btn.name}
                                     value={btn.value}
-                                    id={btn.id}
+                                    key={btn.id}
                                     onClick={handleButtonClick}>{btn.name}</button>
                                 )
                             })
@@ -175,7 +175,7 @@ const Web3Native = () => {
                                     className={`${className}`}
                                     name={btn.name}
                                     value={btn.value}
-                                    id={btn.id}
+                                    key={btn.id}
                                     onClick={handleButtonClick}>{btn.name}</button>
                                 )
                             })
@@ -196,7 +196,7 @@ const Web3Native = () => {
                                     className={`proximity-button ${className}`}
                                     name={btn.name}
                                     value={btn.value}
-                                    id={btn.id}
+                                    key={btn.id}
                                     onClick={handleButtonClick}>{btn.value}</button>
                                 )
                             })
