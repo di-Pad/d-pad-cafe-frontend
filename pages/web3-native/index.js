@@ -15,46 +15,46 @@ const Web3Native = () => {
             {
                 name: "10%",
                 value: "10%",
-                id = 1
+                id: 1
             },
             {
                 name: "30%",
                 value: "30%",
-                id = 2
+                id: 2
             },
             {
                 name: "50%",
                 value: "50%",
-                id = 3
+                id: 3
             }
         ],
         distributionFrequency: [
             {
                 name: "Weekly",
                 value: "Weekly",
-                id = 1
+                id: 1
             },            
             {
                 name: "Monthly",
                 value: "Monthly",
-                id = 2
+                id: 2
             },
         ],
         proximity: [
             {
                 name: "Protocol",
                 value: "Only to your Protocol",
-                id = 1
+                id: 1
             },
             {
                 name: "Template",
                 value: "To the same template",
-                id = 2
+                id: 2
             },
             {
                 name: "Skillwallet",
                 value: "All SkillWallet holders",
-                id = 3
+                id: 3
             },
         ]
     };
