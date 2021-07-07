@@ -25,17 +25,21 @@ a {
 }
 
 .landing-sidebar {
-  width: 30%;
   background-color: grey;
+  text-align: center;
+  min-width: 20%;
+  max-width: 25%;
 }
 
-.landing-sidebar > h2, .landing-sidebar > p {
-  width: 85%;
-  margin: 10px auto;
+.landing-sidebar > p {
+  font-size: large;
+  width: 75%;
+  margin: 15% auto;
+  line-height: 1.6;
 }
 
 .landing-sidebar > div {
-  width: 40%;
+  width: 50%;
   height: 20%;
   margin: 10px auto;
 }
@@ -79,7 +83,7 @@ a {
 
 .buttons {
   width: 100%;
-  margin-top: 40%; 
+  margin-top: 25%; 
 }
 
 .buttons-top-row {
@@ -105,10 +109,10 @@ a {
 .landing-button-container {
   display: flex;
   justify-content: space-between;
-  width: 35%;
+  width: 40%;
   align-items: center;
   border: 2px solid black;
-  border-radius: 20px;
+  border-radius: 40px;
   padding: 8px;
   margin: 20px;
 }
@@ -122,16 +126,33 @@ a {
   max-height: 40px;
 }
 
+.landing-button-container a {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 2px 10px;
+}
+
 .landing-button-text {
   display: flex;
   flex-direction: column;
-  /* width:70%; */
+}
+
+.landing-button-text h2 {
+  text-decoration: underline;
+  font-size: 40px;
 }
 
 .landing-button-text h2, .landing-button-text p {
   margin: 5px;
   margin-right: 12px;
 }
+
+.landing-button-img {
+  max-height: 50%;
+  width: 80% !important;
+}
+
   /**** WALLET MODAL *****/
 #topDiv {
   display: block;
@@ -276,49 +297,74 @@ a {
 
   /**** INTEGRATE PAGE *****/
 
+  .integrate-main {
+    display: flex;
+    height:100%;
+  }
+
+.integrate-sidebar {
+  background-color: grey;
+  text-align: center;
+  min-width: 20%;
+  max-width: 25%;
+}
+
+.integrate-header {
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 30px;
+}
+
+.integrate-sidebar > h2 {
+  font-size: x-large;
+  width: 75%;
+  margin: 15% auto;
+}
+
+.integrate-sidebar > div {
+  width: 50%;
+  height: 20%;
+  margin: 10px auto;
+}
+
+.integrate-sidebar > p {
+  font-size: 20px;
+  width: 75%;
+  margin: 15% auto;
+}
+
 .integrate-template-content {
   border: 2px solid black;
   border-radius: 20px;
   margin: 0 15px;
 }
 
-.template-card-black {
-  align-items: center;
+.template-card {
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 286px;
+  max-width: 35%;
+  padding: 16px;
+  border-right: 1px solid black;
+}
+
+.template-card h3 {
+  font-weight: bold;
+}
+
+.card-black {
   background-color: black;
   color: white;  
-  border-radius: 16px;
-  display: flex;
-  flex-direction: column;
-  min-height: 286px;
-  padding: 16px;
-  border-right: 1px solid black;
 }
 
-.template-card-white {
-  align-items: center;
+.card-white {
   background-color: white;
-  color: #1b1c1d;  
-  border-radius: 16px;
-  display: flex;
-  flex-direction: column;
-  min-height: 286px;
-  padding: 16px;
-  border-right: 1px solid black;
+  color: black;  
 }
 
-.template-card-black:hover, .template-card-white:hover {
+.template-card:hover {
   cursor: pointer;
-}
-
-.template-card {
-  align-items: center;
-  background-color: white;
-  color: #1b1c1d;  
-  border-radius: 16px;
-  display: flex;
-  flex-direction: column;
-  min-height: 286px;
-  padding: 16px;
 }
 
 .top-card {
@@ -392,6 +438,42 @@ a {
 
 .integrate-project-types {
   display: flex;
+}
+
+.auto-flex1 {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.number-1 {
+  letter-spacing: 0px;
+  line-height: 14px;
+  min-height: 18px;
+  min-width: 10px;
+  text-align: center;
+  white-space: nowrap;
+  margin-top: 0.5em;
+  margin-right: 0.5em;
+}
+
+.number-2 {
+  letter-spacing: 0px;
+  line-height: 14px;
+  margin-left: 1em;
+  min-height: 18px;
+  min-width: 18px;
+  text-align: center;
+  white-space: nowrap;
+  margin-top: 0.5em;
+}
+
+.repayment-percent-bar {
+  align-items: flex-start;
+  display: flex;
+  height: 1em;
+  height: 1em;
+  flex: 1;
 }
 
 .top-row {

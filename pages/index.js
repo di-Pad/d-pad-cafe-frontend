@@ -42,7 +42,7 @@ const modalText = [
             tokenomics for your protocol</span>
           </p>
 
-          <Image src="/d-pad-logo.png" alt="d-pad logo" width="40" height="40"></Image>
+          <Image src="/d-pad-logo.png" alt="d-pad logo" width="100" height="100"></Image>
 
           <p>Automate a <b>fair token launch</b> and/or <b>set a Native 
             Profit-sharing model</b> to split revenues with your protocol&#39;s
@@ -68,7 +68,7 @@ const modalText = [
                       <h2 className="heavy">Integrate</h2>
                       <p>SkillWallet Auth</p>
                   </div>
-                  <Image src={networkIcon} alt="SkillWallet Auth" width="40" height="40"/>
+                  <Image src={networkIcon} className="landing-button-img" alt="SkillWallet Auth" width="100" height="100"/>
                   </a> 
                 </div>
               </Link>
@@ -79,7 +79,7 @@ const modalText = [
                       <h2 className="heavy">Design</h2>
                       <p>Token Agreement</p>
                   </div>
-                  <Image src={fundsIcon} alt="Token Agreement" width="40" height="40"/>
+                  <Image src={fundsIcon} className="landing-button-img" alt="Token Agreement" width="100" height="100"/>
                   </a> 
                 </div>
               </Link>
@@ -93,7 +93,7 @@ const modalText = [
                       <h2 className="heavy">Web3 Native</h2>
                       <p>Profit-Sharing Model</p>
                   </div>
-                  <Image src={serverIcon} alt="Profit-Sharing Model" width="40" height="40"/>
+                  <Image src={serverIcon} className="landing-button-img" alt="Profit-Sharing Model" width="100" height="100"/>
                   </a> 
                 </div>
               {/* </Link> */}

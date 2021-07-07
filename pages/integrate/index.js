@@ -60,36 +60,33 @@ const Integrate = () => {
     return (
     <div className="container">
 
-      <main className="landing-main">
-        <div className="landing-sidebar">
-          <h2>Welcome to your<span className="heavy"> Partner Agreement!</span></h2>
+      <main className="integrate-main">
+        <div className="integrate-sidebar">
+          <h2>Welcome to your <br></br><span className="heavy"> Partner Agreement!</span></h2>
 
-          <Image src="/d-pad-logo.png" alt="d-pad logo" width="40" height="40"></Image>
+          <Image src="/d-pad-logo.png" alt="d-pad logo" width="100" height="100"></Image>
 
-          <p>In just two steps, you will integrate a <b>universal, sybil-resistant login</b>
-             for your users - and automate <b>an internal, mathematically-fair Tokenomics</b>
+          <p>In just two steps, you will integrate a <b>universal, sybil-resistant login </b>
+             for your users - and automate <b>an internal, mathematically-fair Tokenomics </b>
              for your community.
           </p>
         </div>
 
         <div className="integrate-content">
-          <div>
+          <div className="integrate-header">
             <h2 className="heavy">Partner&#39;s Agreement</h2>
             <h4>Select the template that best represents your project / protocol.</h4>
           </div>
 
           <div className="integrate-template-content">
-              
-            { templateOptions === null ? 
+            {templateOptions === null ? 
             <div className="integrate-project-types">
-                <div className='template-card-white' onClick={() => setSelectedTemplate('open-source')}>
+                <div className='template-card card-white' onClick={() => setSelectedTemplate('open-source')}>
                     <div className="top-card">
                         <Image className="image-7" src='/opensource-defi-black.png' alt="card-logo" width="40" height="40"/>
 
                         <div className="title-white-card raleway-bold-alto-22px">
-                            <>
-                        Open-Source & DeFi
-                            </>
+                            <h3>Open-Source & DeFi</h3>
                         </div>
                     </div>
 
@@ -100,14 +97,12 @@ const Integrate = () => {
                     <Image className="line-26" src='/geometric-card-line-break.png' alt="line" width="40" height="2"/>
                 </div>
 
-                <div className="template-card-white" onClick={() => setSelectedTemplate('art')}>
+                <div className="template-card card-white" onClick={() => setSelectedTemplate('art')}>
                     <div className="top-card">
                         <Image className="image-7" src='/opensource-defi-black.png' alt="card-logo" width="40" height="40"/>
 
                         <div className="title-white-card raleway-bold-alto-22px">
-                            <>
-                        Art, Events & NFTs
-                            </>
+                            <h3>Art, Events & NFTs</h3>
                         </div>
                     </div>
 
@@ -118,14 +113,12 @@ const Integrate = () => {
                     <Image className="line-26" src='/geometric-card-line-break.png' alt="line" width="40" height="2"/>
                 </div>
 
-                <div className="template-card-white" onClick={() => setSelectedTemplate('local')}>
+                <div className="template-card card-white" onClick={() => setSelectedTemplate('local')}>
                     <div className="top-card">
                         <Image className="image-7" src='/opensource-defi-black.png' alt="card-logo" width="40" height="40"/>
 
                         <div className="title-white-card raleway-bold-alto-22px">
-                            <>
-                        Local Projects & DAOs
-                            </>
+                            <h3>Local Projects & DAOs</h3>
                         </div>
                     </div>
 
@@ -135,16 +128,14 @@ const Integrate = () => {
 
                     <Image className="line-26" src='/geometric-card-line-break.png' alt="line" width="40" height="2"/>
                 </div>
-
-                    </div> :
+            </div> :
 
             <PartnersAgreementTemplateOptions 
                 headerImage= {templateOptions.imageSrc}
                 header= {templateOptions.header}
                 description={templateOptions.description}
-            /> }
-
-
+            /> 
+        }
             <div className="bootstrap-button">
                 <p>Bootstrap your Community Economy</p>
             </div>
