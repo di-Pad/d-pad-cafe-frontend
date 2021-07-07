@@ -14,39 +14,47 @@ const Web3Native = () => {
         profitPercentage: [
             {
                 name: "10%",
-                value: "10%"
+                value: "10%",
+                id = 1
             },
             {
                 name: "30%",
-                value: "30%"
+                value: "30%",
+                id = 2
             },
             {
                 name: "50%",
-                value: "50%"
+                value: "50%",
+                id = 3
             }
         ],
         distributionFrequency: [
             {
                 name: "Weekly",
-                value: "Weekly"
+                value: "Weekly",
+                id = 1
             },            
             {
                 name: "Monthly",
-                value: "Monthly"
+                value: "Monthly",
+                id = 2
             },
         ],
         proximity: [
             {
                 name: "Protocol",
-                value: "Only to your Protocol"
+                value: "Only to your Protocol",
+                id = 1
             },
             {
                 name: "Template",
-                value: "To the same template"
+                value: "To the same template",
+                id = 2
             },
             {
                 name: "Skillwallet",
-                value: "All SkillWallet holders"
+                value: "All SkillWallet holders",
+                id = 3
             },
         ]
     };
@@ -146,6 +154,7 @@ const Web3Native = () => {
                                     className={`${className}`}
                                     name={btn.name}
                                     value={btn.value}
+                                    id={btn.id}
                                     onClick={handleButtonClick}>{btn.name}</button>
                                 )
                             })
@@ -166,6 +175,7 @@ const Web3Native = () => {
                                     className={`${className}`}
                                     name={btn.name}
                                     value={btn.value}
+                                    id={btn.id}
                                     onClick={handleButtonClick}>{btn.name}</button>
                                 )
                             })
@@ -186,6 +196,7 @@ const Web3Native = () => {
                                     className={`proximity-button ${className}`}
                                     name={btn.name}
                                     value={btn.value}
+                                    id={btn.id}
                                     onClick={handleButtonClick}>{btn.value}</button>
                                 )
                             })
