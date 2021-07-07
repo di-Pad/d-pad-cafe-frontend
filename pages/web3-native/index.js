@@ -6,26 +6,61 @@ import { createPartnersAgreement, validateMumbaiNet } from '../../api/contracts'
 
 const Web3Native = () => {
     const [value, onChange] = useState(new Date());
-    // const [clickedButtonIndex, setClickedButtonIndex] = useState(null);
+    const [activeProfitButton, setActiveProfitButton] = useState('');
+    const [activeDistributionButton, setActiveDistributionButton] = useState('');
+    const [activeProximityButton, setActiveProximityButton] = useState('');
+    
+    const buttons = {
+        profitPercentage: [
+            {
+                name: "10%",
+                value: "10%"
+            },
+            {
+                name: "30%",
+                value: "30%"
+            },
+            {
+                name: "50%",
+                value: "50%"
+            }
+        ],
+        distributionFrequency: [
+            {
+                name: "Weekly",
+                value: "Weekly"
+            },            
+            {
+                name: "Monthly",
+                value: "Monthly"
+            },
+        ],
+        proximity: [
+            {
+                name: "Protocol",
+                value: "Only to your Protocol"
+            },
+            {
+                name: "Template",
+                value: "To the same template"
+            },
+            {
+                name: "Skillwallet",
+                value: "All SkillWallet holders"
+            },
+        ]
+    };
 
-    // useEffect(() => {
-    //     let el = '';
-    //     if (clickedButtonIndex) {
-    //         if (clickedButtonIndex === 1) {
-    //             el = document.getElementById('button1');
-    //         } else if (clickedButtonIndex === 2) {
-    //             el = document.getElementById('button2');
-    //         } else if (clickedButtonIndex === 3) {
-    //             const el = document.getElementById('button3');
-    //             el.style = {backgroundColor: "black", color: 'white'};
-    //             return;
-    //         } else {
-    //             return;
-    //         }
-    //         el.style = {backgroundColor: "black", color: 'white'};
-    //         return;
-    //     }
-    // }, [clickedButtonIndex]);
+    const handleButtonClick = e => {
+        const name = e.target.name;
+        if (['10%', '30%', '50%'].includes(name)) {
+            setActiveProfitButton(name);
+        } else if (['Weekly', 'Monthly'].includes(name)) {
+            setActiveDistributionButton(name);
+        } else {
+            setActiveProximityButton(name);
+        }
+    };
 
     const handleProfitSharing = async () => {
         console.log('profit sharing called!');
@@ -102,20 +137,20 @@ const Web3Native = () => {
 
                         <p>Tot. Profit (%) to share:</p>
 
-                        {/* <div className="total-profit-buttons">
-                            <button onClick={setClickedButtonIndex(1)} id="button1">10%</button>
-                            <button onClick={setClickedButtonIndex(2)} id="button2">30%</button>
-                            <button onClick={setClickedButtonIndex(3)} id="button3">50%</button>
-                        </div> */}
-
-                        <form>
-                            <input type="radio" value="10%" name="profit" />
-                            <label > 10%</label><br></br>
-                            <input type="radio" value="30%" name="profit"/>
-                            <label > 30%</label><br></br>
-                            <input type="radio" value="50%" name="profit"/>
-                            <label > 50%</label><br></br>
-                        </form>
+                        <div className="total-profit-buttons">
+                        {
+                            buttons.profitPercentage.map(btn => {
+                                const className= activeProfitButton === btn.name ? "active" : "";
+                                return (
+                                    <button
+                                    className={`${className}`}
+                                    name={btn.name}
+                                    value={btn.value}
+                                    onClick={handleButtonClick}>{btn.name}</button>
+                                )
+                            })
+                        }
+                        </div>
 
                         <h3>Frequency of Distribution</h3>
                         <p>How often would you like the Profit-Sharing distribution to happen? No worries, we&#39;ll optimize if for you,
@@ -123,8 +158,18 @@ const Web3Native = () => {
                         </p>
 
                         <div className="distribution-rate-buttons">
-                            <button>Weekly</button>
-                            <button>Monthly</button>
+                        {
+                            buttons.distributionFrequency.map(btn => {
+                                const className= activeDistributionButton === btn.name ? "active" : "";
+                                return (
+                                    <button
+                                    className={`${className}`}
+                                    name={btn.name}
+                                    value={btn.value}
+                                    onClick={handleButtonClick}>{btn.name}</button>
+                                )
+                            })
+                        }
                         </div>
                     </div>
 
@@ -133,11 +178,18 @@ const Web3Native = () => {
 
                         <p>Distribute your Token based on the proximity of the interactions to your protocol!</p>
 
-                        <button className="proximity-button">Only to your Protocol</button>
-
-                        <button className="proximity-button">To the same Template</button>
-
-                        <button className="proximity-button">All SkillWallet holders</button>
+                        {
+                            buttons.proximity.map(btn => {
+                                const className= activeProximityButton === btn.name ? "active" : "";
+                                return (
+                                    <button
+                                    className={`proximity-button ${className}`}
+                                    name={btn.name}
+                                    value={btn.value}
+                                    onClick={handleButtonClick}>{btn.value}</button>
+                                )
+                            })
+                        }
                     </div>
 
                     <div className="control-section">
