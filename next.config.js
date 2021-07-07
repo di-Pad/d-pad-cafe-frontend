@@ -1,4 +1,8 @@
 module.exports = {
   reactStrictMode: true,
-  assetPrefix: "./"
+  assetPrefix: "./",
+  images: {
+    loader: "imgix",
+    path: "",
+  } 
 }
