@@ -9,6 +9,7 @@ const Integrate = () => {
     const [showModal, setShowModal] = useState(false);
     const [selectedTemplate, setSelectedTemplate] = useState(null);
     const [templateOptions, setTemplateOptions] = useState(null);
+    const [userUnselectedTemplate, setUserUnselectedTemplate] = useState(false);
     let userContractAddress = '';
 
     const toggleModal = (address) => {
@@ -47,6 +48,8 @@ const Integrate = () => {
             imageSrc: '/opensource-defi-white.png',
             header: 'Local Projects & DAOs',
             description: 'From support for people in need, to innovative local hubs to get together & create something greater than oneself.'}
+        
+        setUserUnselectedTemplate(false);
 
         if (selectedTemplate === 'open-source') {
             setTemplateOptions(openSource);
@@ -79,7 +82,7 @@ const Integrate = () => {
           </div>
 
           <div className="integrate-template-content">
-            {templateOptions === null ? 
+            {templateOptions === null || userUnselectedTemplate ? 
             <div className="integrate-project-types">
                 <div className='template-card card-white' onClick={() => setSelectedTemplate('open-source')}>
                     <div className="top-card">
@@ -134,6 +137,7 @@ const Integrate = () => {
                 headerImage= {templateOptions.imageSrc}
                 header= {templateOptions.header}
                 description={templateOptions.description}
+                undoTemplateOption={setUserUnselectedTemplate}
             /> 
         }
             <div className="bootstrap-button">

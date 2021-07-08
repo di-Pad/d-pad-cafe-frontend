@@ -5,6 +5,11 @@ import 'antd/dist/antd.css';
 import { Formik } from "formik";
 
 const PartnersAgreementTemplateOptions = (props) => {
+  const userClickedUndo = () => {
+      props.undoTemplateOption(true)
+      return;
+  };
+
     return (
         <>
         <Formik
@@ -36,7 +41,9 @@ const PartnersAgreementTemplateOptions = (props) => {
           }) => (
             <Form onSubmit={handleSubmit}>
         <div className="top-row">
-                <div className='template-card card-black'>
+                <div className='template-card card-black' 
+                onClick={userClickedUndo}
+                >
                     <div className="top-card">
                         <Image className="image-7" src={props.headerImage} alt="card-logo" width="40" height="40"/>
 
@@ -68,16 +75,18 @@ const PartnersAgreementTemplateOptions = (props) => {
                     <p>How many initial Actions you expect. No worries, you can always add more later :)</p>
                     <div className="auto-flex1">
                         <div className="number-1 raleway raleway-bold-black-14px">0</div>
+                        {/* https://ant.design/components/slider/ */}
                         <Slider
                             name="repaymentPercent"
                             min={0}
-                            max={50}
+                            max={100}
                             color="black"
+                            step={10}
                             onBlur={handleBlur}
                             // value={values.repaymentPercent}
                               className="repayment-percent-bar"
                             />
-                        <div className="number-2 raleway raleway-bold-black-14px">50</div>
+                        <div className="number-2 raleway raleway-bold-black-14px">100</div>
                     </div>
                 </div>
         </div>
