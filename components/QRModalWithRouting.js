@@ -52,13 +52,12 @@ const QRModalWithRouting = (props, {
                     <p>{props.modalText}</p>
                 </div>
                 
-                <div className="m-auto">
-                    {/* DELETE THE BUTTON AFTER LONGPOLLING */}
+                {/* <div className="m-auto">
                     <button 
                         className="modal-button"
                         onClick={props.closeOnClick}>Close
                     </button>
-                </div>
+                </div> */}
             </div>
         </div>
     </div>

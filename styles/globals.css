@@ -121,6 +121,12 @@ a {
   cursor: pointer;
 }
 
+.disabled {
+  cursor: auto !important;
+  color: grey;
+  border: 2px solid grey;
+}
+
 .landing-button-container img, .top-card img {
   max-width: 40px;
   max-height: 40px;

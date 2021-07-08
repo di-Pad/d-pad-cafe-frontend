@@ -165,6 +165,7 @@ const Web3Native = () => {
                                     name={btn.name}
                                     value={btn.value}
                                     key={btn.id}
+                                    disabled={btn.name === "Template" || btn.name === "Skillwallet" ? true : false}
                                     onClick={handleButtonClick}>{btn.value}</button>
                                 )
                             })

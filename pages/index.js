@@ -72,21 +72,20 @@ const modalText = [
                   </a> 
                 </div>
               </Link>
-              <Link href='design' passHref>
-                <div className="landing-button-container">
+              {/* <Link href='design' passHref> */}
+                <div className="landing-button-container disabled">
                   <a>
                   <div className="landing-button-text">
                       <h2 className="heavy">Design</h2>
                       <p>Token Agreement</p>
                   </div>
-                  <Image src={fundsIcon} className="landing-button-img" alt="Token Agreement" width="100" height="100"/>
+                  {/* <Image src={fundsIcon} className="landing-button-img" alt="Token Agreement" width="100" height="100"/> */}
                   </a> 
                 </div>
-              </Link>
+              {/* </Link> */}
             </div>
             
             <div className="buttons-bottom-row">
-              {/* <Link href='/web3-native' passHref> */}
                 <div className="landing-button-container" onClick={() => showNewQRModal()}>
                   <a>
                   <div className="landing-button-text">
@@ -96,7 +95,6 @@ const modalText = [
                   <Image src={serverIcon} className="landing-button-img" alt="Profit-Sharing Model" width="100" height="100"/>
                   </a> 
                 </div>
-              {/* </Link> */}
             </div>
           </div>
           { showModal ? <ConnectWallet key={'connect'} toggleModal={toggleModal} /> : null}
