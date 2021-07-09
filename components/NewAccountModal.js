@@ -61,7 +61,7 @@ const NewAccountModal = (props, {
                     </button>
                     <button
                         onClick={() => createNewUser()}>
-                        <FaPlusCircle size={80}/>
+                        <Image src="/torus-new-user.svg" alt="Blue rectangle with a white letter-T" width="40" height="40"/>
                         <p>Create New Account</p>
                     </button>
                 </div>

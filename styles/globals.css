@@ -638,6 +638,10 @@ a {
     margin: 40px 20px;
   }
 
+/* .pill > * {
+  margin-left: 200px;
+} */
+
   .pill h4 {
     margin-left: 15px;
     font-size: 18px;
@@ -704,6 +708,7 @@ a {
     border-radius: 25px;
     background-color: white;
     margin: 4px 0;
+    display: flex;
   }
 
   .deploy-button {

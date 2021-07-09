@@ -8,9 +8,9 @@ import QRModalWithRouting from '../components/QRModalWithRouting';
 import Link from 'next/link';
 
 export default function Home() {
-  const networkIcon = "/cluster-data.png";
-  const fundsIcon = "/funds.png";
-  const serverIcon = "/database-server.png";
+  const networkIcon = "/network.svg";
+  const fundsIcon = "/funds.svg";
+  const serverIcon = "/database-server.svg";
   const [showModal, setShowModal] = useState(false);
   const toggleModal = () => setShowModal(!showModal);
   const [showQRModal, setShowQRModal] = useState(false);
@@ -79,7 +79,7 @@ const modalText = [
                       <h2 className="heavy">Design</h2>
                       <p>Token Agreement</p>
                   </div>
-                  {/* <Image src={fundsIcon} className="landing-button-img" alt="Token Agreement" width="100" height="100"/> */}
+                  <Image src={fundsIcon} className="landing-button-img" alt="Token Agreement" width="100" height="100"/>
                   </a> 
                 </div>
               {/* </Link> */}

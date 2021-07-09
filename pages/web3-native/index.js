@@ -21,9 +21,9 @@ const Web3Native = () => {
             {name: "Monthly", value: "Monthly", id: 2},
         ],
         proximity: [
-            {name: "Protocol", value: "Only to your Protocol", id: 1},
-            {name: "Template", value: "To the same template", id: 2},
-            {name: "Skillwallet", value: "All SkillWallet holders", id: 3},
+            {name: "Protocol", value: "Only to your Protocol", id: 1, imgSrc: '/network.svg', imgAlt: 'forked network'},
+            {name: "Template", value: "To the same template", id: 2, imgSrc: '/network-4.svg', imgAlt: 'four network nodes connected together'},
+            {name: "Skillwallet", value: "All SkillWallet holders", id: 3, imgSrc: '/network-globe-outline-badged.svg', imgAlt: 'globe with nodes connected to each other'},
         ]
     };
 
@@ -67,13 +67,12 @@ const Web3Native = () => {
 
             <div className="profit-sidebar-buttons">
                 <div className="pill">
-                    <Image src="/d-pad-logo.png" alt="d-pad logo" width="55" height="40"/>
-
+                    <Image src="/overview-stats.svg" alt="d-pad logo" width="40" height="30"/>
                     <h4>Overview & Stats</h4>
                 </div>
 
                 <div className="pill contracts-pill">
-                <Image src="/d-pad-logo.png" alt="d-pad logo" width="55" height="40"/>
+                    <Image src="/listed-contracts.svg" alt="d-pad logo" width="55" height="40"/>
                     <div className="listed-contracts">
                         <h4>Listed Contracts</h4>
                         <form>
@@ -87,12 +86,12 @@ const Web3Native = () => {
                 </div>
 
                 <div className="pill">
-                <Image src="/d-pad-logo.png" alt="d-pad logo" width="55" height="40"/>
+                    <Image src="/add-contract.svg" alt="d-pad logo" width="40" height="30"/>
                     <h4>Add Contract</h4>
                 </div>
 
                 <div className="pill">
-                <Image src="/d-pad-logo.png" alt="d-pad logo" width="55" height="40"/>
+                    <Image src="/log-off.svg" alt="d-pad logo" width="40" height="30"/>
                     <h4>Log off</h4>
                 </div>
             </div>
@@ -166,7 +165,10 @@ const Web3Native = () => {
                                     value={btn.value}
                                     key={btn.id}
                                     disabled={btn.name === "Template" || btn.name === "Skillwallet" ? true : false}
-                                    onClick={handleButtonClick}>{btn.value}</button>
+                                    onClick={handleButtonClick}>
+                                        {btn.value}
+                                        <Image src={btn.imgSrc} alt={btn.imgAlt} width="20" height="20"/>
+                                    </button>
                                 )
                             })
                         }
@@ -183,7 +185,9 @@ const Web3Native = () => {
 
                 <h3 style={{fontStyle: "underline", fontWeight: "bold"}}>Bootstrap your Profit-Sharing Community</h3>
 
-                <button className="deploy-button">Click to Deploy your Treasury Contract</button>
+                <button className="deploy-button">Click to Deploy your Treasury Contract
+                    <Image src="/scatter-plot-outline-badged.svg" alt="d-pad logo" width="20" height="20"/>
+                </button>
 
                 <button className="profit-share" onClick={handleProfitSharing}>Start Sharing 🚀</button>
             </div>

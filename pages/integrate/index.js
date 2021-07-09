@@ -41,11 +41,11 @@ const Integrate = () => {
             header: 'Open-Source & DeFi',
             description: 'For researchers & web3, open-source teams, that innovate in a liberal fashion - for a more sustainable, meritocratic world.'}
         const art = {
-            imageSrc: '/opensource-defi-white.png',
+            imageSrc: '/art-nft-white.png',
             header: 'Art, Events & NFTs',
             description: 'Art movements, writers & creatives of all kind who use Art & provable ownership for purer forms of human interaction.'}
         const local = {
-            imageSrc: '/opensource-defi-white.png',
+            imageSrc: '/local-dao-white.png',
             header: 'Local Projects & DAOs',
             description: 'From support for people in need, to innovative local hubs to get together & create something greater than oneself.'}
         
@@ -86,7 +86,7 @@ const Integrate = () => {
             <div className="integrate-project-types">
                 <div className='template-card card-white' onClick={() => setSelectedTemplate('open-source')}>
                     <div className="top-card">
-                        <Image className="image-7" src='/opensource-defi-black.png' alt="card-logo" width="40" height="40"/>
+                        <Image className="image-7" src='/nodes.svg' alt="cluster of network nodes" width="40" height="40"/>
 
                         <div className="title-white-card raleway-bold-alto-22px">
                             <h3>Open-Source & DeFi</h3>
@@ -102,7 +102,7 @@ const Integrate = () => {
 
                 <div className="template-card card-white" onClick={() => setSelectedTemplate('art')}>
                     <div className="top-card">
-                        <Image className="image-7" src='/opensource-defi-black.png' alt="card-logo" width="40" height="40"/>
+                        <Image className="image-7" src='/lightbulb.svg' alt="white lightbulb over a black background" width="40" height="40"/>
 
                         <div className="title-white-card raleway-bold-alto-22px">
                             <h3>Art, Events & NFTs</h3>
@@ -118,7 +118,7 @@ const Integrate = () => {
 
                 <div className="template-card card-white" onClick={() => setSelectedTemplate('local')}>
                     <div className="top-card">
-                        <Image className="image-7" src='/opensource-defi-black.png' alt="card-logo" width="40" height="40"/>
+                        <Image className="image-7" src='/person-and-graph.svg' alt="Person standing next to a bar graph" width="40" height="40"/>
 
                         <div className="title-white-card raleway-bold-alto-22px">
                             <h3>Local Projects & DAOs</h3>
@@ -147,10 +147,12 @@ const Integrate = () => {
             <div className="integrate-button-panel">
                 <button>
                 Start from Scratch
+                <Image  src='/paper.svg' alt="white sheet of paper" width="100" height="100"/>
                 </button>
 
                 <button onClick={toggleModal} className="importYourContract">
                 Import your Contract
+                <Image  src='/import-contract.svg' alt="black sheet of paper" width="50" height="50"/>
                 </button>
             </div>
 

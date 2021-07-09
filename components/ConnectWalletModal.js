@@ -45,14 +45,14 @@ const ConnectWalletModal = (props) => {
             <div id="modalWindow">
                 <div className="modal-window-child">
                     <div className="wallet-header">
-                        <Image src="/wallet.svg" alt="wallet icon" width="40" height="40"/>
+                        <Image src="/wallet-white.svg" alt="wallet icon" width="40" height="40"/>
                         <h2>Connect your wallet</h2>
                     </div>
 
                     <div className="wallet-modal-button">
                         <button
                             onClick={() => showNewQRModal()}>
-                            <Image src="/qr-code.svg" alt="a scan-able QR code" width="35" height="35"/>
+                            <Image src="/sw-logo.svg" alt="a scan-able QR code" width="35" height="35"/>
                             <p>SkillWallet</p>
                         </button>
                         <button
