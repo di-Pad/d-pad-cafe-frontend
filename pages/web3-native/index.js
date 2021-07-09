@@ -166,7 +166,7 @@ const Web3Native = () => {
                                     key={btn.id}
                                     disabled={btn.name === "Template" || btn.name === "Skillwallet" ? true : false}
                                     onClick={handleButtonClick}>
-                                        {btn.value}
+                                        <p>{btn.value}</p>
                                         <Image src={btn.imgSrc} alt={btn.imgAlt} width="20" height="20"/>
                                     </button>
                                 )
@@ -185,9 +185,10 @@ const Web3Native = () => {
 
                 <h3 style={{fontStyle: "underline", fontWeight: "bold"}}>Bootstrap your Profit-Sharing Community</h3>
 
-                <button className="deploy-button">Click to Deploy your Treasury Contract
-                    <Image src="/scatter-plot-outline-badged.svg" alt="d-pad logo" width="20" height="20"/>
-                </button>
+                <button className="deploy-button">
+                    <p>Click to Deploy your Treasury Contract</p>
+                    <Image src="/scatter-plot-outline-badged.svg" alt="d-pad logo" width="40" height="40"/>
+                </button>                
 
                 <button className="profit-share" onClick={handleProfitSharing}>Start Sharing 🚀</button>
             </div>

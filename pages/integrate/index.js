@@ -146,13 +146,13 @@ const Integrate = () => {
 
             <div className="integrate-button-panel">
                 <button>
-                Start from Scratch
-                <Image  src='/paper.svg' alt="white sheet of paper" width="100" height="100"/>
+                    <p>Start from Scratch</p>
+                    <Image  src='/paper.svg' alt="white sheet of paper" width="40" height="40"/>
                 </button>
 
                 <button onClick={toggleModal} className="importYourContract">
-                Import your Contract
-                <Image  src='/import-contract.svg' alt="black sheet of paper" width="50" height="50"/>
+                    <p>Import your Contract</p>
+                    <Image  src='/import-contract.svg' alt="black sheet of paper" width="40" height="40"/>
                 </button>
             </div>
 
