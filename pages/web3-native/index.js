@@ -107,12 +107,21 @@ const Web3Native = () => {
 
             <div className="profit-sharing-agreement">
                 <div className="profit-sharing-controls">
-                    <div className="control-section">
+                    <div className="control-section distr">
                         <h3>Distribution Rate</h3>
 
                         <p>Tot. Profit (%) to share:</p>
 
-                        <div className="total-profit-buttons">
+                        <div className="bar-chart-first-container">
+                            <div className="bar-chart-container"></div>
+
+                            <div className="bar-chart-metrics">
+                                <p>0</p>
+                                <p>100</p>
+                            </div>
+                        </div>
+
+                        {/* <div className="total-profit-buttons">
                         {
                             buttons.profitPercentage.map(btn => {
                                 const className= activeProfitButton === btn.name ? "active" : "";
@@ -126,7 +135,7 @@ const Web3Native = () => {
                                 )
                             })
                         }
-                        </div>
+                        </div> */}
 
                         <h3>Frequency of Distribution</h3>
                         <p>How often would you like the Profit-Sharing distribution to happen? No worries, we&#39;ll optimize if for you,
