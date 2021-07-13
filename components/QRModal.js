@@ -35,15 +35,15 @@ const QRModal = (props, {
             {/* <span className="close">&times;</span> */}
             <div id="qrContainer">
                 <div id="qrBackground">
-                <QRCode
-                value={JSON.stringify(props.qrCodeObj)}
-                logoImage="/dark-dito.svg"
-                logoWidth={140}
-                logoHeight={140}
-                bgColor="#E9F2D5"
-                size={420}
-                className="qr-code"
-                />
+                    <QRCode
+                    value={JSON.stringify(props.qrCodeObj)}
+                    logoImage="/d-pad-logo.png"
+                    logoWidth={140}
+                    logoHeight={140}
+                    bgColor="#FFFFFF"
+                    size={350}
+                    className="qr-code"
+                    />
                 </div>
 
                 <div id="joinModalText">

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import QRModal from '../components/QRModal';
 import NewAccountModal from '../components/NewAccountModal';
-import { FaPlusCircle } from 'react-icons/fa';
 import { getSkillWalletNonce } from '../api/utils';
 
 const ConnectWalletModal = (props) => {
@@ -46,18 +45,18 @@ const ConnectWalletModal = (props) => {
                 <div className="modal-window-child">
                     <div className="wallet-header">
                         <Image src="/wallet-white.svg" alt="wallet icon" width="40" height="40"/>
-                        <h2>Connect your wallet</h2>
+                        <h2>Login with</h2>
                     </div>
 
                     <div className="wallet-modal-button">
                         <button
                             onClick={() => showNewQRModal()}>
-                            <Image src="/sw-logo.svg" alt="a scan-able QR code" width="35" height="35"/>
+                            <Image src="/sw-logo.svg" alt="a scan-able QR code" width="100" height="100"/>
                             <p>SkillWallet</p>
                         </button>
                         <button
                             onClick={() => showNewAccountModal()}>
-                            <FaPlusCircle size={40}/>
+                            <Image src="/plus-button-white.svg" alt="addition sign in a white circle" width="100" height="100"/>
                             <p>New User</p>
                         </button>
                     </div>
