@@ -75,18 +75,19 @@ const modalText = [
                 <div className="landing-button-container">
                   <a>
                   <div className="landing-button-text">
-                      <h2 className="heavy">Integrate</h2>
+                      <h2 style={{textDecoration: 'underline', fontWeight: "bold"}}>Integrate</h2>
                       <p>SkillWallet Auth</p>
                   </div>
                   <Image src={networkIcon} className="landing-button-img" alt="SkillWallet Auth" width="100" height="100"/>
                   </a> 
                 </div>
               </Link>
+
               {/* <Link href='design' passHref> */}
                 <div className="landing-button-container disabled">
                   <a>
                   <div className="landing-button-text">
-                      <h2 className="heavy">Design</h2>
+                      <h2 style={{textDecoration: 'underline', fontWeight: "bold"}}>Design</h2>
                       <p>Token Agreement</p>
                   </div>
                   <Image src={fundsIcon} className="landing-button-img" alt="Token Agreement" width="100" height="100"/>
@@ -99,7 +100,7 @@ const modalText = [
                 <div className="landing-button-container" onClick={() => showNewQRModal()}>
                   <a>
                   <div className="landing-button-text">
-                      <h2 className="heavy">Web3 Native</h2>
+                      <h2 style={{textDecoration: 'underline', fontWeight: "bold"}}>Web3 Native</h2>
                       <p>Profit-Sharing Model</p>
                   </div>
                   <Image src={serverIcon} className="landing-button-img" alt="Profit-Sharing Model" width="100" height="100"/>

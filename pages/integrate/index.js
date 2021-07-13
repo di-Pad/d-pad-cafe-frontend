@@ -65,7 +65,7 @@ const Integrate = () => {
 
       <main className="integrate-main">
         <div className="integrate-sidebar">
-          <h2>Welcome to your <br></br><span className="heavy"> Partner Agreement!</span></h2>
+          <h2>Welcome to your <br></br><span style={{fontWeight: 'bold'}}> Partner Agreement!</span></h2>
 
           <Image src="/d-pad-logo.png" alt="d-pad logo" width="100" height="100"></Image>
 
@@ -77,7 +77,7 @@ const Integrate = () => {
 
         <div className="integrate-content">
           <div className="integrate-header">
-            <h2 className="heavy">Partner&#39;s Agreement</h2>
+            <h2 style={{fontWeight: 'bold', textDecoration: 'underline'}}>Partner&#39;s Agreement</h2>
             <h4>Select the template that best represents your project / protocol.</h4>
           </div>
 

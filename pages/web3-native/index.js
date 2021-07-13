@@ -56,7 +56,7 @@ const Web3Native = () => {
     return (
         <div className="container">
   
-        <main className="landing-main">
+        <main className="profit-main">
           <div className="profit-sidebar">
             <div className="user-header">
                 <Image src="/d-pad-logo.png" alt="d-pad logo" width="55" height="40"></Image>
