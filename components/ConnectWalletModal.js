@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import QRModal from '../components/QRModal';
 import NewAccountModal from '../components/NewAccountModal';
 import { FaPlusCircle } from 'react-icons/fa';
@@ -13,8 +14,16 @@ const ConnectWalletModal = (props) => {
         setShowQRModal(!showQRModal);
     };
 
+    const showNewAccountModal = () => {
+        setShowAccountModal(!showAccountModal);
+    }
+
     const closeQR = () => {
-        setShowQRModal(!showQRModal);
+        if (showQRModal) {
+            setShowQRModal(!showQRModal);
+        } else if (showAccountModal) {
+            setShowAccountModal(!showAccountModal);
+        }
         props.toggleModal();
     }
 
@@ -28,7 +37,7 @@ const ConnectWalletModal = (props) => {
 
     const modalText = [
         'Scan with your ',
-        <a href="" className="underline text-blue-600 hover:text-blue-400 visited:text-purple-400" >SkillWallet App</a>,
+        <a href="" key={1} className="underline text-blue-600 hover:text-blue-400 visited:text-purple-400" >SkillWallet App</a>,
         ' to login to your community.'];
 
     return (
@@ -36,15 +45,20 @@ const ConnectWalletModal = (props) => {
             <div id="modalWindow">
                 <div className="modal-window-child">
                     <div className="wallet-header">
-                        <img src="/wallet.svg"/>
+                        <Image src="/wallet-white.svg" alt="wallet icon" width="40" height="40"/>
                         <h2>Connect your wallet</h2>
                     </div>
 
                     <div className="wallet-modal-button">
                         <button
                             onClick={() => showNewQRModal()}>
-                            <img src="/qr-code.svg"/>
+                            <Image src="/sw-logo.svg" alt="a scan-able QR code" width="35" height="35"/>
                             <p>SkillWallet</p>
+                        </button>
+                        <button
+                            onClick={() => showNewAccountModal()}>
+                            <FaPlusCircle size={40}/>
+                            <p>New User</p>
                         </button>
                     </div>
                 </div>
@@ -52,12 +66,18 @@ const ConnectWalletModal = (props) => {
             { showQRModal
                 ? <QRModal
                     key={'qr'}
-                    toggleModal={showNewQRModal}
                     closeOnClick={closeQR}
                     modalText={modalText}
                     qrCodeObj={
                         { nonce }
                     } 
+                    />
+                : null}
+            { showAccountModal
+                ? <NewAccountModal
+                    key={'newAccount'}
+                    closeOnClick={closeQR}
+                    modalText={modalText}
                     />
                 : null}
             { showAccountModal

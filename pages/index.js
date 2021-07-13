@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
 // import LandingButton from '../components/LandingButton'; //TODO: swap Links with LandingButton and solve <a> reference inheritance problem
 import Button from '../components/Button';
 import ConnectWallet from '../components/ConnectWalletModal';
@@ -51,10 +52,10 @@ const modalText = [
             tokenomics for your protocol</span>
           </p>
 
-          <img src="/d-pad-logo.png"></img>
+          <Image src="/d-pad-logo.png" alt="d-pad logo" width="100" height="100"></Image>
 
           <p>Automate a <b>fair token launch</b> and/or <b>set a Native 
-            Profit-sharing model</b> to split revenues with your protocol's
+            Profit-sharing model</b> to split revenues with your protocol&#39;s
             participants (you included!)
           </p>
         </div>
@@ -70,42 +71,40 @@ const modalText = [
 
           <div className="buttons">
             <div className="buttons-top-row">
-              <Link href='/integrate'>
+              <Link href='/integrate' passHref>
                 <div className="landing-button-container">
                   <a>
                   <div className="landing-button-text">
                       <h2 className="heavy">Integrate</h2>
                       <p>SkillWallet Auth</p>
                   </div>
-                  <img src={networkIcon} alt="SkillWallet Auth"/>
+                  <Image src={networkIcon} className="landing-button-img" alt="SkillWallet Auth" width="100" height="100"/>
                   </a> 
                 </div>
               </Link>
-              <Link href='design'>
-                <div className="landing-button-container">
+              {/* <Link href='design' passHref> */}
+                <div className="landing-button-container disabled">
                   <a>
                   <div className="landing-button-text">
                       <h2 className="heavy">Design</h2>
                       <p>Token Agreement</p>
                   </div>
-                  <img src={fundsIcon} alt="Token Agreement"/>
+                  <Image src={fundsIcon} className="landing-button-img" alt="Token Agreement" width="100" height="100"/>
                   </a> 
                 </div>
-              </Link>
+              {/* </Link> */}
             </div>
             
             <div className="buttons-bottom-row">
-              <Link href='/web3-native'>
-                <div className="landing-button-container">
+                <div className="landing-button-container" onClick={() => showNewQRModal()}>
                   <a>
                   <div className="landing-button-text">
                       <h2 className="heavy">Web3 Native</h2>
                       <p>Profit-Sharing Model</p>
                   </div>
-                  <img src={serverIcon} alt="Profit-Sharing Model"/>
+                  <Image src={serverIcon} className="landing-button-img" alt="Profit-Sharing Model" width="100" height="100"/>
                   </a> 
                 </div>
-              </Link>
             </div>
           </div>
           { showModal ? <ConnectWallet key={'connect'} toggleModal={toggleModal} /> : null}

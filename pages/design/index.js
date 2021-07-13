@@ -1,12 +1,9 @@
-<<<<<<< Updated upstream
-=======
 import Image from 'next/image';
 import Calendar from 'react-calendar';
 import { useState } from 'react';
 import 'react-calendar/dist/Calendar.css';
 import { createPartnersAgreement, validateMumbaiNet } from '../../api/contracts';
 
->>>>>>> Stashed changes
 const Design = () => {
     const [value, onChange] = useState(new Date());
     const [showModal, setShowModal] = useState(false);
@@ -57,9 +54,6 @@ const Design = () => {
     };
 
     return (
-<<<<<<< Updated upstream
-        <div>design</div>
-=======
         <div className="container">
   
         <main className="design-main">
@@ -195,7 +189,6 @@ const Design = () => {
           </div>
         </main>
       </div>
->>>>>>> Stashed changes
     )
 }
 

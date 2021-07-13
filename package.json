@@ -4,13 +4,18 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "build": "rm -rf out/ && rm -rf .next/ && next build && next export",
+    "start": "next start -p 3010",
     "lint": "next lint"
   },
   "dependencies": {
+    "antd": "^4.16.6",
+    "ethers": "^5.4.1",
+    "formik": "^2.2.9",
+    "formik-antd": "^2.0.1",
     "next": "11.0.1",
     "react": "17.0.2",
+    "react-calendar": "^3.4.0",
     "react-dom": "17.0.2",
     "react-icons": "^4.2.0",
     "react-qrcode-logo": "^2.4.0"

@@ -22,11 +22,27 @@ a {
 .landing-main {
   display: flex;
   height:100%;
+  min-height: 100vh;
 }
 
 .landing-sidebar {
-  width: 30%;
   background-color: grey;
+  text-align: center;
+  min-width: 20%;
+  max-width: 25%;
+}
+
+.landing-sidebar > p {
+  font-size: large;
+  width: 75%;
+  margin: 15% auto;
+  line-height: 1.6;
+}
+
+.landing-sidebar > div {
+  width: 50%;
+  height: 20%;
+  margin: 10px auto;
 }
 
 .landing-content {
@@ -68,7 +84,7 @@ a {
 
 .buttons {
   width: 100%;
-  margin-top: 40%; 
+  margin-top: 25%; 
 }
 
 .buttons-top-row {
@@ -94,10 +110,10 @@ a {
 .landing-button-container {
   display: flex;
   justify-content: space-between;
-  width: 35%;
+  width: 40%;
   align-items: center;
   border: 2px solid black;
-  border-radius: 20px;
+  border-radius: 40px;
   padding: 8px;
   margin: 20px;
 }
@@ -106,21 +122,44 @@ a {
   cursor: pointer;
 }
 
+.disabled {
+  cursor: auto !important;
+  color: grey;
+  border: 2px solid grey;
+}
+
 .landing-button-container img, .top-card img {
   max-width: 40px;
   max-height: 40px;
 }
 
+.landing-button-container a {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 2px 10px;
+}
+
 .landing-button-text {
   display: flex;
   flex-direction: column;
-  /* width:70%; */
+}
+
+.landing-button-text h2 {
+  text-decoration: underline;
+  font-size: 40px;
 }
 
 .landing-button-text h2, .landing-button-text p {
   margin: 5px;
   margin-right: 12px;
 }
+
+.landing-button-img {
+  max-height: 50%;
+  width: 80% !important;
+}
+
   /**** WALLET MODAL *****/
 #topDiv {
   display: block;
@@ -175,27 +214,41 @@ a {
 
 .wallet-modal-button {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+
 }
 
 .wallet-modal-button button {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  border-radius: 20px;
+  border-radius: 40px;
   background-color: rgba(249, 250, 251, 1);
   padding: 3px 10px;
-  width: 12rem;
+  width: 50%;
+  margin: 10px 0;
 }
 
 .wallet-modal-button img {
-  width: 22px;
+  /* width: 22px; */
+  /* padding-left: 15px; */
 }
 
 .wallet-modal-button p {
   padding: 2px 8px;
-  font-size: large;
+  font-size: x-large;
+  margin-left: 55px;
 }
+
+.new-account-button button {
+  width: 60%;
+}
+
+/* .metamask-button > button > img {
+  width: 50px !important;
+} */
 
   /**** WALLET MODAL *****/
 
@@ -251,32 +304,95 @@ a {
 
   /**** INTEGRATE PAGE *****/
 
+  .integrate-main {
+    display: flex;
+    height:100%;
+  }
+
+.integrate-sidebar {
+  background-color: grey;
+  text-align: center;
+  min-width: 20%;
+  max-width: 25%;
+  min-height: 100vh;
+}
+
+.integrate-header {
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 30px;
+}
+
+.integrate-sidebar > h2 {
+  font-size: x-large;
+  width: 75%;
+  margin: 15% auto;
+}
+
+.integrate-sidebar > div {
+  width: 50%;
+  height: 20%;
+  margin: 10px auto;
+}
+
+.integrate-sidebar > p {
+  font-size: 20px;
+  width: 75%;
+  margin: 15% auto;
+}
+
 .integrate-template-content {
   border: 2px solid black;
   border-radius: 20px;
   margin: 0 15px;
 }
 
-.white-card {
-  align-items: center;
-  background-color: white;
-  color: #1b1c1d;  
+.template-card {
   border-radius: 16px;
   display: flex;
   flex-direction: column;
   min-height: 286px;
+  max-width: 35%;
   padding: 16px;
+  border-right: 1px solid black;
+}
+
+.template-card h3 {
+  font-weight: bold;
+}
+
+.card-black {
+  background-color: black;
+  color: white;  
+}
+
+.card-white {
+  background-color: white;
+  color: black;  
+}
+
+.template-card:hover {
+  cursor: pointer;
 }
 
 .top-card {
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
+}
+
+.top-card > *:first-child {
+  margin-right: 15px !important;
 }
 
 .image-7 {
   height: 89px;
   width: 89px;
+}
+
+.integrate-project-types:last-child > .top-card > *:first-child {
+  margin-right: 5px !important;
 }
 
 .title-white-card {
@@ -287,6 +403,20 @@ a {
   text-align: left;
   white-space: nowrap;
   color:black;
+  display: flex;
+  align-items: center;
+}
+
+.title-black-card {
+  letter-spacing: 0.15px;
+  line-height: 22px;
+  min-height: 54px;
+  min-width: 144px;
+  text-align: left;
+  white-space: nowrap;
+  color: white !important;
+  display: flex;
+  align-items: center;
 }
 
 .raleway-bold-alto-22px {
@@ -316,7 +446,58 @@ a {
   min-height: 15vw;
 }
 
+.description-black-card {
+  letter-spacing: 0px;
+  line-height: 24px;
+  text-align: left;
+  flex: 1;
+  width: 100%;
+  padding: 20px;
+  color:white;
+  min-height: 15vw;
+}
+
 .integrate-project-types {
+  display: flex;
+}
+
+.auto-flex1 {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.number-1 {
+  letter-spacing: 0px;
+  line-height: 14px;
+  min-height: 18px;
+  min-width: 10px;
+  text-align: center;
+  white-space: nowrap;
+  margin-top: 0.5em;
+  margin-right: 0.5em;
+}
+
+.number-2 {
+  letter-spacing: 0px;
+  line-height: 14px;
+  margin-left: 1em;
+  min-height: 18px;
+  min-width: 18px;
+  text-align: center;
+  white-space: nowrap;
+  margin-top: 0.5em;
+}
+
+.repayment-percent-bar {
+  align-items: flex-start;
+  display: flex;
+  height: 1em;
+  height: 1em;
+  flex: 1;
+}
+
+.top-row {
   display: flex;
 }
 
@@ -332,6 +513,10 @@ a {
   text-decoration: underline;
 }
 
+.importYourContract:hover {
+  cursor: pointer;
+} 
+
 .integrate-button-panel {
   display: flex;
   justify-content: center;
@@ -340,10 +525,18 @@ a {
 .integrate-button-panel button {
   border: 1px solid black;
   border-radius: 30px;
-  font-size: large;
-  padding: 20px;
+  font-size: x-large;
+  /* padding: 20px; */
   margin: 15px;
-  width:20%;
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.integrate-button-panel button > * {
+  padding: 0 6%;
 }
 
 .integrate-deploy {
@@ -355,6 +548,10 @@ a {
   text-align: center;
   font-size: large;
   text-decoration: underline;
+}
+
+.integrate-deploy:hover {
+  cursor: pointer;
 }
 
   /**** INTEGRATE PAGE *****/
@@ -617,11 +814,12 @@ a {
 
 .container {
   min-height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .main {
