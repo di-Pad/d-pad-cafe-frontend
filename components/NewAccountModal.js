@@ -50,21 +50,20 @@ const NewAccountModal = (props, {
         >
             {/* <span className="close">&times;</span> */}
             <div id="qrContainer">
-                <div id="qrBackground">
+                <div id="qrBackgroundNewUser">
 
-
-                <div className="wallet-modal-button new-account-button">
-                    <button
-                        onClick={() => callContractFromMetamask()}>
-                        <Image src="/metamask.svg" alt="Metamask logo of a smiling fox" width="40" height="40"/>
-                        <p>Inject from Metamask</p>
-                    </button>
-                    <button
-                        onClick={() => createNewUser()}>
-                        <Image src="/torus-new-user.svg" alt="Blue rectangle with a white letter-T" width="40" height="40"/>
-                        <p>Create New Account</p>
-                    </button>
-                </div>
+                    <div className="wallet-modal-button new-account-button">
+                        <button
+                            onClick={() => callContractFromMetamask()}>
+                            <Image src="/metamask.svg" alt="Metamask logo of a smiling fox" width="100" height="100"/>
+                            <p>Inject from Metamask</p>
+                        </button>
+                        <button
+                            onClick={() => createNewUser()}>
+                            <Image src="/torus-new-user.svg" alt="Blue rectangle with a white letter-T" width="100" height="100"/>
+                            <p>Create New Account</p>
+                        </button>
+                    </div>
                 
                 {/* <div className="m-auto">
                     // DELETE THE BUTTON AFTER LONGPOLLING 
