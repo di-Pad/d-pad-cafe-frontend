@@ -3,12 +3,12 @@ import Image from 'next/image';
 import QRModal from '../components/QRModal';
 import NewAccountModal from '../components/NewAccountModal';
 import { FaPlusCircle } from 'react-icons/fa';
-// import { generateNonce } from '../api/users'
+import { getSkillWalletNonce } from '../api/utils';
 
 const ConnectWalletModal = (props) => {
     const [showQRModal, setShowQRModal] = useState(false);
     const [showAccountModal, setShowAccountModal] = useState(false);
-    // const [nonce, setNonce] = useState();
+    const [nonce, setNonce] = useState();
 
     const showNewQRModal = () => {
         setShowQRModal(!showQRModal);
@@ -27,13 +27,13 @@ const ConnectWalletModal = (props) => {
         props.toggleModal();
     }
 
-    // useEffect(() => {
-    //     const getNonce = async () => {
-    //         const nonce = await generateNonce(1, -1);
-    //         setNonce(nonce);
-    //     }
-    //     getNonce();
-    // }, [])
+    useEffect(() => {
+        const getNonce = async () => {
+            const nonce = await getSkillWalletNonce();
+            setNonce(nonce);
+        }
+        getNonce();
+    }, [])
 
     const modalText = [
         'Scan with your ',
@@ -68,9 +68,16 @@ const ConnectWalletModal = (props) => {
                     key={'qr'}
                     closeOnClick={closeQR}
                     modalText={modalText}
-                    // qrCodeObj={
-                    //     { nonce }
-                    // } 
+                    qrCodeObj={
+                        { nonce }
+                    } 
+                    />
+                : null}
+            { showAccountModal
+                ? <NewAccountModal
+                    key={'newAccount'}
+                    closeOnClick={closeQR}
+                    modalText={modalText}
                     />
                 : null}
             { showAccountModal

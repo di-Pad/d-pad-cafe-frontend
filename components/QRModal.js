@@ -14,9 +14,9 @@ const QRModal = (props, {
 }) => {
 
     useEffect(() => {
-        const timeout = setTimeout(() => {
-           props.closeOnClick();
-         }, 5000);
+        // const timeout = setTimeout(() => {
+        //    props.closeOnClick();
+        //  }, 5000);
        },[]);
     return (
     <div style={{ display, position, zIndex, left, top, width, height, overflow, backgroundColor}}>

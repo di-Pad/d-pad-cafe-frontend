@@ -1,16 +1,18 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 // import LandingButton from '../components/LandingButton'; //TODO: swap Links with LandingButton and solve <a> reference inheritance problem
 import Button from '../components/Button';
 import ConnectWallet from '../components/ConnectWalletModal';
 import QRModalWithRouting from '../components/QRModalWithRouting';
+import { getSkillWalletNonce } from '../api/utils';
 import Link from 'next/link';
 
 export default function Home() {
   const networkIcon = "/network.svg";
   const fundsIcon = "/funds.svg";
   const serverIcon = "/database-server.svg";
+  const [nonce, setNonce] = useState();
   const [showModal, setShowModal] = useState(false);
   const toggleModal = () => setShowModal(!showModal);
   const [showQRModal, setShowQRModal] = useState(false);
@@ -22,6 +24,14 @@ const closeQR = () => {
   setShowQRModal(!showQRModal);
   toggleModal();
 }
+
+useEffect(() => {
+  const getNonce = async () => {
+      const nonce = await getSkillWalletNonce();
+      setNonce(nonce);
+  }
+  getNonce();
+}, [])
 
 const modalText = [
   'Scan with your ',
@@ -65,18 +75,19 @@ const modalText = [
                 <div className="landing-button-container">
                   <a>
                   <div className="landing-button-text">
-                      <h2 className="heavy">Integrate</h2>
+                      <h2 style={{textDecoration: 'underline', fontWeight: "bold"}}>Integrate</h2>
                       <p>SkillWallet Auth</p>
                   </div>
                   <Image src={networkIcon} className="landing-button-img" alt="SkillWallet Auth" width="100" height="100"/>
                   </a> 
                 </div>
               </Link>
+
               {/* <Link href='design' passHref> */}
                 <div className="landing-button-container disabled">
                   <a>
                   <div className="landing-button-text">
-                      <h2 className="heavy">Design</h2>
+                      <h2 style={{textDecoration: 'underline', fontWeight: "bold"}}>Design</h2>
                       <p>Token Agreement</p>
                   </div>
                   <Image src={fundsIcon} className="landing-button-img" alt="Token Agreement" width="100" height="100"/>
@@ -89,7 +100,7 @@ const modalText = [
                 <div className="landing-button-container" onClick={() => showNewQRModal()}>
                   <a>
                   <div className="landing-button-text">
-                      <h2 className="heavy">Web3 Native</h2>
+                      <h2 style={{textDecoration: 'underline', fontWeight: "bold"}}>Web3 Native</h2>
                       <p>Profit-Sharing Model</p>
                   </div>
                   <Image src={serverIcon} className="landing-button-img" alt="Profit-Sharing Model" width="100" height="100"/>
@@ -105,9 +116,9 @@ const modalText = [
                 key={'qr'}
                 closeOnClick={closeQR}
                 modalText={modalText}
-                // qrCodeObj={
-                //     { nonce }
-                // } 
+                qrCodeObj={
+                    { nonce }
+                } 
                 />
             : null}
     </div>
