@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { QRCode } from 'react-qrcode-logo';
+import { useRouter } from 'next/router';
 
-const QRModal = (props, {
+const QRModalWithRouting = (props, {
     display = 'block',
     position = 'fixed',
     zIndex = 2,
@@ -12,11 +13,12 @@ const QRModal = (props, {
     overflow = 'auto',
     backgroundColor = 'rgba(0,0,0,0.8)'
 }) => {
+    const router = useRouter();
 
     useEffect(() => {
-        // const timeout = setTimeout(() => {
-        //    props.closeOnClick();
-        //  }, 5000);
+         const timeout2 = setTimeout(() => {
+             router.push('/web3-native');
+         }, 5000);
        },[]);
     return (
     <div style={{ display, position, zIndex, left, top, width, height, overflow, backgroundColor}}>
@@ -50,17 +52,16 @@ const QRModal = (props, {
                     <p>{props.modalText}</p>
                 </div>
                 
-                <div className="m-auto">
-                    {/* DELETE THE BUTTON AFTER LONGPOLLING */}
+                {/* <div className="m-auto">
                     <button 
                         className="modal-button"
                         onClick={props.closeOnClick}>Close
                     </button>
-                </div>
+                </div> */}
             </div>
         </div>
     </div>
     )
 }
 
-export default QRModal;
+export default QRModalWithRouting;

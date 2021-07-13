@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import QRModal from '../components/QRModal';
-// import { generateNonce } from '../api/users'
+import NewAccountModal from '../components/NewAccountModal';
+import { FaPlusCircle } from 'react-icons/fa';
+import { getSkillWalletNonce } from '../api/utils';
 
 const ConnectWalletModal = (props) => {
     const [showQRModal, setShowQRModal] = useState(false);
+    const [showAccountModal, setShowAccountModal] = useState(false);
     const [nonce, setNonce] = useState();
 
     const showNewQRModal = () => {
@@ -15,13 +18,13 @@ const ConnectWalletModal = (props) => {
         props.toggleModal();
     }
 
-    // useEffect(() => {
-    //     const getNonce = async () => {
-    //         const nonce = await generateNonce(1, -1);
-    //         setNonce(nonce);
-    //     }
-    //     getNonce();
-    // }, [])
+    useEffect(() => {
+        const getNonce = async () => {
+            const nonce = await getSkillWalletNonce();
+            setNonce(nonce);
+        }
+        getNonce();
+    }, [])
 
     const modalText = [
         'Scan with your ',
@@ -52,9 +55,9 @@ const ConnectWalletModal = (props) => {
                     toggleModal={showNewQRModal}
                     closeOnClick={closeQR}
                     modalText={modalText}
-                    // qrCodeObj={
-                    //     { nonce }
-                    // } 
+                    qrCodeObj={
+                        { nonce }
+                    } 
                     />
                 : null}
         </div>

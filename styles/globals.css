@@ -360,6 +360,259 @@ a {
   /**** INTEGRATE PAGE *****/
 
 
+
+  /**** TOKEN DISTRIBUTION PAGE *****/
+
+.user-header {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 10%;
+}
+
+.user-header > h4 {
+  margin-left: 30px;
+}
+
+.profit-content {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.profit-content > * {
+  width: 90%;
+  margin: 15px auto;
+  text-align: center;
+}
+
+.profit-sharing-agreement {
+  border: 2px solid black;
+  border-radius: 30px;
+}
+
+.profit-sharing-controls {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 5px auto;
+  margin-bottom: 50px;
+}
+
+.profit-sharing-controls > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.design-share {
+  border: 1px solid black;
+  border-radius: 30px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 30px;
+  text-align: center;
+  font-size: large;
+  text-decoration: underline;
+}
+
+.design-sidebar-buttons > * {
+  margin: 50px 0;
+}
+
+  /**** TOKEN DISTRIBUTION PAGE *****/
+
+
+    /**** DESIGN PAGE *****/
+
+    .design-main {
+      display: flex;
+      height:100%;
+    }
+
+    .design-sidebar {
+      background-color: grey;
+      text-align: center;
+      min-width: 20%;
+      max-width: 25%;
+      min-height: 100vh;
+    }
+
+    .design-content {
+      width: 70%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .design-content > * {
+      width: 90%;
+      margin: 15px auto;
+      text-align: center;
+    }
+    
+
+  /**** PROFIT SHARING PAGE *****/
+
+  .profit-share {
+    border: 1px solid black;
+    border-radius: 30px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 30px;
+    text-align: center;
+    font-size: large;
+    text-decoration: underline;
+    background-color: white;
+  }
+
+  .profit-share:hover {
+    cursor: pointer;
+  }
+
+  .profit-sidebar {
+    width: 30%;
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .profit-sidebar-buttons > * {
+    margin: 50px 0;
+  }
+
+  .pill {
+    background-color: white;
+    display: flex;
+    border: 1px solid black;
+    border-radius: 40px;
+    justify-content: flex-start;
+    padding: 5px 0px 5px 20px;
+    margin: 40px 20px;
+  }
+
+/* .pill > * {
+  margin-left: 200px;
+} */
+
+  .pill h4 {
+    margin-left: 15px;
+    font-size: 18px;
+  }
+
+  .pill:hover {
+    cursor: pointer;
+  }
+
+  .contracts-pill {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .listed-contracts {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .listed-contracts > h4 {
+    margin: 2px 0 ;
+  }
+
+  .line-break {
+    margin: 0 auto;
+  }
+
+  .control-section {
+    border-right: 1px solid black;
+    margin: 0 10px;
+    padding: 0 20px;
+  }
+
+  .control-section:first-of-type {
+    width: 80%;
+  }
+
+  .control-section:last-of-type {
+    border-right: 0;
+  }
+
+  .total-profit-buttons {
+    display: flex;
+  }
+
+  .distribution-rate-buttons {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  .distribution-rate-buttons button, .total-profit-buttons button {
+    border: 2px solid black;
+    border-radius: 35px;
+    width: 25%;
+    margin: 5px;
+    background-color: white;
+  }
+
+  .distribution-rate-buttons button:hover, .total-profit-buttons button:hover, .proximity-button:hover {
+    cursor: pointer;
+  }
+
+  .proximity-button {
+    border: 2px solid black;
+    border-radius: 25px;
+    background-color: white;
+    margin: 4px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .proximity-button > * {
+    padding: 0 5px;
+  }
+
+  .deploy-button {
+    padding: 15px;
+    border: 2px solid black;
+    border-radius: 25px;
+    background-color: white;
+    width: 60%;
+    font-size: 18px;
+    margin: 0 auto;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .deploy-button > p {
+    margin-right: 20px;
+  }
+
+
+  .active {
+    background-color: black !important;
+    color: white;
+  }
+
+  /**** PROFIT SHARING PAGE *****/
+
+
+
+  /**** CALENDAR *****/
+
+  .react-calendar {
+    width: 100% !important;
+  }
+
+  /**** CALENDAR *****/
+
+
+
 /******** DELETE THESE GLOBAL RULES AFTER  FIX MY GLOBAL STYLING ******/
 
 .container {

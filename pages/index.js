@@ -1,16 +1,41 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
 // import LandingButton from '../components/LandingButton'; //TODO: swap Links with LandingButton and solve <a> reference inheritance problem
 import Button from '../components/Button';
 import ConnectWallet from '../components/ConnectWalletModal';
+import QRModalWithRouting from '../components/QRModalWithRouting';
+import { getSkillWalletNonce } from '../api/utils';
 import Link from 'next/link';
 
 export default function Home() {
-  const networkIcon = "cluster-data.png";
-  const fundsIcon = "funds.png";
-  const serverIcon = "database-server.png";
+  const networkIcon = "/network.svg";
+  const fundsIcon = "/funds.svg";
+  const serverIcon = "/database-server.svg";
+  const [nonce, setNonce] = useState();
   const [showModal, setShowModal] = useState(false);
   const toggleModal = () => setShowModal(!showModal);
+  const [showQRModal, setShowQRModal] = useState(false);
+  const showNewQRModal = () => {
+    setShowQRModal(!showQRModal);
+};
+
+const closeQR = () => {
+  setShowQRModal(!showQRModal);
+  toggleModal();
+}
+
+useEffect(() => {
+  const getNonce = async () => {
+      const nonce = await getSkillWalletNonce();
+      setNonce(nonce);
+  }
+  getNonce();
+}, [])
+
+const modalText = [
+  'Scan with your ',
+  <a href="" key={1} className="underline text-blue-600 hover:text-blue-400 visited:text-purple-400" >SkillWallet App</a>,
+  ' to login to your community.'];
 
   return (
     <div className="container">
@@ -86,6 +111,16 @@ export default function Home() {
           { showModal ? <ConnectWallet key={'connect'} toggleModal={toggleModal} /> : null}
         </div>
       </main>
+      { showQRModal
+            ? <QRModalWithRouting
+                key={'qr'}
+                closeOnClick={closeQR}
+                modalText={modalText}
+                qrCodeObj={
+                    { nonce }
+                } 
+                />
+            : null}
     </div>
   )
 }
