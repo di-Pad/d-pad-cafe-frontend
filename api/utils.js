@@ -1,21 +1,11 @@
 import { pushJSONDocument } from '../api/textile.hub';
 
-const skillNames = [
-    //Local
-    'Fun & Entertainment', 'Administration & Management', 'Community Life', 'Leadership & Public Speaking',
-    'Legal', 'Accounting', 'Art, Music & Creativity', 'Teaching',
-    'Company', 'Householding', 'Gardening', 'Cooking',
-    
-    //Art
-    'Performance & Theather', 'Project Management', 'Production', 'Gaming',
-    'Music', 'Painting', 'Photography', 'Video-making',
-    'Training & Sport', 'Hiking', 'Biking', 'Writing',
-  
-    // Tech
-    'Network Design', 'Tokenomics', 'Game Theory', 'Governance & Consensus',
-    'Backend', 'Frontend', 'Web Dev', 'Mobile Dev',
-    'DeFi', 'Blockchain infrastructure', 'Architecture', 'Smart Contracts'
-  ];
+export const template = {
+  'open-source': 1,
+  'art': 2,
+  'local': 3
+}
+
 
 export const useJoinCommunity = () => {
 

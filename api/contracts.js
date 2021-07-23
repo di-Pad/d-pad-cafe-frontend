@@ -1,74 +1,127 @@
 import { ethers } from 'ethers'
+import { pushJSONDocument }  from '../utils/textile.hub';
 
 var communityABI = require('../contracts/abi/ICommunity.abi.json').abi;
 var partnersRegistryABI = require('../contracts/abi/PartnersRegistry.abi.json').abi;
 
-export const validateMumbaiNet = async () => {
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    const network = await provider.getNetwork();
-    if (network.name !== 'mumbai') {
-      return false;
+const metadata = [
+  {
+    title: 'Open-Source & DeFi',
+    description: 'For researchers & web3, open-source teams, that innovate in a liberal fashion - for a more sustainable, meritocratic world.',
+    image: 'https://hub.textile.io/ipfs/bafkreiaks3kjggtxqaj3ixk6ce2difaxj5r6lbemx5kcqdkdtub5vwv5mi',
+    properties: {
+      template: 'Open-Source & DeFi',
     }
-    return true;
+  },
+  {
+    title: 'Art, Events & NFTs',
+    description: 'Art movements, writers & creatives of all kind who use Art & provable ownership for purer forms of human interaction.',
+    image: 'https://hub.textile.io/ipfs/bafkreigxry2ojoqmfs5wo5ijyzkdsmsyb7yfcjokiegkkhokca2wiltsdu',
+    properties: {
+      template: 'Art, Events & NFTs',
+    }
+  },
+  {
+    title: 'Local Projects & DAOs',
+    description: 'From support for people in need, to innovative local hubs to get together & create something greater than oneself.',
+    image: 'https://hub.textile.io/ipfs/bafkreibaxbmskevzm6wk7gzmuahvzjghmal2lanlbjabnzn7i5posmehem',
+    properties: {
+      template: 'Local Projects & DAOs',
+    }
   }
 
-export const createPartnersAgreement = async () => {
+]
+
+export const validateMumbaiNet = async () => {
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const network = await provider.getNetwork();
+  if (network.name !== 'mumbai') {
+    return false;
+  }
+  return true;
+}
+
+export const createPartnersAgreement = async (template) => {
+  console.log('createPartnersAgreement')
   if (!window.ethereum.selectedAddress) {
     await window.ethereum.enable()
   };
 
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    const network = await provider.getNetwork();
-    // if (network.name !== 'mumbai') {
-    //   return false;
-    // }
-    const signer = provider.getSigner();
-    console.log(provider, network, signer);
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const network = await provider.getNetwork();
+  const signer = provider.getSigner();
 
-    // cannot read property 'map' of undefined...
+  const contract = new ethers.Contract(
+    process.env.NEXT_PUBLIC_PARTNERS_REGISTRY_ADDRESS,
+    partnersRegistryABI,
+    signer,
+  );
 
-    const contract = new ethers.Contract( 
-        '0x68565f98f7d565A3019ED6EB5dA921156Ff7ab10',
-        partnersRegistryABI,
-        signer,
-      );
+  const jsonMetadata = metadata[template];
+  jsonMetadata.properties.roles = [
+    localStorage.getItem('skillOne'),
+    localStorage.getItem('skillTwo'),
+    localStorage.getItem('skillThree'),
+  ];
+  const url = await pushJSONDocument(jsonMetadata);
+  console.log(url);
 
-      const agreementEvent = await contract.create(
-        'https://..',
-        0,
-        2,
-        10,
-        '0x1d08c93724741eE0E43ac9D623A127F48B16c2a8',
-        5
-      );
+  let rolesCount = 2;
+  if(localStorage.getItem('skillThree'))
+    rolesCount = 3;
 
-      return agreementEvent;
+  console.log('calling the SC')
+  const createTx = await contract.create(
+    url,
+    template,
+    rolesCount,
+    localStorage.getItem('numberOfActions'), // number of Actions,
+    localStorage.getItem('contractAddress'), // contract address
+    100 // members
+  );
+
+  consol.log(createTx);
+
+
+  const result = await createTx.wait();
+  const { events } = result;
+  const event = events.find(
+    e => e.event === 'PartnersAgreementCreated',
+  );
+
+  const partnersAgreementAddress = event.args[0].toString();
+  const communityAddress = event.args[1].toString();
+
+  consol.log(createTx);
+  console.log(event)
+  console.log('partnersAgreementAddress', partnersAgreementAddress)
+  console.log('communityAddress', communityAddress)
 }
 
 export const createNewUser = async () => {
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    const network = await provider.getNetwork();
-    if (network.name !== 'mumbai') {
-      return false;
-    }
-    const signer = provider.getSigner();
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const network = await provider.getNetwork();
+  if (network.name !== 'mumbai') {
+    return false;
+  }
+  const signer = provider.getSigner();
 
-    const contract = new ethers.Contract(
-        '',
-        communityABI,
-        signer,
-      );
+  const contract = new ethers.Contract(
+    '',
+    communityABI,
+    signer,
+  );
 
-      const newUser = await contract.joinNewMember(
-        1,
-        10,
-        0,
-        0,
-        0,
-        0,
-        '', //uri... again - leave empty, don't have the textle part
-        240
-    );
+  const newUser = await contract.joinNewMember(
+    1,
+    10,
+    0,
+    0,
+    0,
+    0,
+    '', //uri... again - leave empty, don't have the textle part
+    240
+  );
 
-    return newUser;
+  return newUser;
 }
