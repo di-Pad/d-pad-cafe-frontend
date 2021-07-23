@@ -1,14 +1,23 @@
 import Image from 'next/image';
-import { Form,} from "formik-antd";
-import { Slider } from "antd";
+import { useState } from 'react';
+import { Form, Input, Slider } from "formik-antd";
 import 'antd/dist/antd.css';
 import { Formik } from "formik";
+import VerifyOwnershipModal from "../components/VerifyOwnershipModal";
+import { useJoinCommunity } from '../api/utils';
 
 const PartnersAgreementTemplateOptions = (props) => {
+  const [showModal, setShowModal] = useState(false);
+  let userContractAddress = '';
   const userClickedUndo = () => {
       props.undoTemplateOption(true)
       return;
   };
+
+  const toggleModal = (address) => {
+    userContractAddress = address;
+    setShowModal(!showModal)
+};
 
     return (
         <>
@@ -20,15 +29,23 @@ const PartnersAgreementTemplateOptions = (props) => {
   
           validate={(values) => {
             const errors = {};
-            if (!values.tokenAmount) {
-              errors.tokenAmount = "Required";
-            } else if (values.tokenAmount <= 0) {
-              errors.tokenAmount = "Provide a valid amount.";
+            if (!values.skillOne) {
+              errors.skillOne = "Required";
+            } else if (!values.skillTwo) {
+              errors.skillTwo = "Required";
+            } else if (!values.skillThree) {
+              errors.skillThree = "Required";
             }
             return errors;
           }}
   
-          onSubmit={console.log('submitting form...')}
+          onSubmit={(values) => {
+            console.log(values);
+            localStorage.setItem('skillOne', values.skillOne)
+            localStorage.setItem('skillTwo', values.skillTwo)
+            localStorage.setItem('skillThree', values.skillThree)
+            useJoinCommunity();
+          }}
         >
           {({
             values,
@@ -62,12 +79,30 @@ const PartnersAgreementTemplateOptions = (props) => {
                 <div className='template-card card-white'>
                     <h3>Name 2/3 Roles/Skills</h3>
                     <p>The Roles you envision in your community (i.e. dev, validator, etc.)</p>
-
-                    <form>
-                        <input placeholder="Role/Skill 1" required/>
-                        <input placeholder="Role/Skill 2" required/>
-                        <input placeholder="Role/Skill 3" required/>
-                    </form>
+                        <Input 
+                          id="skillOne"
+                          name="skillOne"
+                          type="text"
+                          onChange={handleChange}
+                          placeholder="Role/Skill 1" 
+                          value={values.skillOne} 
+                          required/>
+                        <Input 
+                          id="skillTwo"
+                          name="skillTwo"
+                          type="text"
+                          onChange={handleChange}
+                          placeholder="Role/Skill 2" 
+                          value={values.skillTwo} 
+                          required/>
+                        <Input 
+                          id="skillThree"
+                          name="skillThree"
+                          type="text"
+                          onChange={handleChange}
+                          placeholder="Role/Skill 3" 
+                          value={values.skillThree} 
+                          required/>
                 </div>
 
                 <div className='template-card card-white'>
@@ -83,123 +118,44 @@ const PartnersAgreementTemplateOptions = (props) => {
                             color="black"
                             step={10}
                             onBlur={handleBlur}
-                            // value={values.repaymentPercent}
+                            value={values.repaymentPercent}
                               className="repayment-percent-bar"
                             />
                         <div className="number-2 raleway raleway-bold-black-14px">100</div>
                     </div>
                 </div>
         </div>
+        <div className="bottom-row">
+                  <div className="bootstrap-button">
+                      <p>Bootstrap your Community Economy</p>
+                  </div>
+
+                  <div className="integrate-button-panel">
+                      <button>
+                          <p>Start from Scratch</p>
+                          <Image  src='/paper.svg' alt="white sheet of paper" width="40" height="40"/>
+                      </button>
+
+                      <button onClick={toggleModal} className="importYourContract">
+                          <p>Import your Contract</p>
+                          <Image  src='/import-contract.svg' alt="black sheet of paper" width="40" height="40"/>
+                      </button>
+                  </div>
+
+                  <button className="integrate-deploy" id="integrate-deploy"
+                  onClick={handleSubmit}
+                  // 'window' is undefined when I call Mumbai
+                  >
+                      Sign & Deploy 🚀
+                  </button>
+
+                </div>
         </Form>
           )}
         </Formik>
+        { showModal ? <VerifyOwnershipModal key={'verify'} toggleModal={toggleModal} /> : null}
       </>
     );
 };
 
 export default PartnersAgreementTemplateOptions;
-
-
-
-
-            //   <>
-            //     <div className="delegation-form dove-gray-border-1px">
-            //       <div className="title raleway raleway-bold-black-22px">
-            //         Your Delegation Agreement
-            //       </div>
-            //       <div className="overlap-group">
-            //         <img
-            //           className="linebreak"
-            //           src={lineBreak}
-            //           alt="linebreak"
-            //         />
-            //         <p className="treasury-delegate raleway raleway-normal-black-14px-2">
-            //           <span className="span1-delegate">
-            //             By delegating the Treasury, you can fund and support
-            //             projects for the Public Goods. The Quadratic Treasury will
-            //             be “locking” these funds to provide “
-            //           </span>
-            //           <span className="span2-delegate">non-repayable loans</span>
-            //           <span className="span1-delegate">
-            //             ” to these projects using Quadratic Funding and a
-            //             milestone-based approach to prevent any form of fraud and
-            //             collusion.
-            //           </span>
-            //         </p>
-            //       </div>
-            //       <div className="auto-flex6">
-            //         <div className="auto-flex">
-            //           <div className="amount-delegate raleway raleway-semi-bold-black-18px">
-            //             Amount
-            //           </div>
-  
-            //           <Input
-            //             type="number"
-            //             name="tokenAmount"
-            //             onChange={handleChange}
-            //             onBlur={handleBlur}
-            //             value={values.tokenAmount}
-            //             placeholder="5000"
-            //             className="overlap-group1-delegate"
-            //           />
-            //           {<div>{errors.tokenAmount}</div>}
-  
-            //           <div className="group-1330">
-            //             <Radio.Group
-            //               name="currency"
-            //               onBlur={handleBlur}
-            //               value={values.currency}
-            //             >
-            //               <Radio value={"DAI"}>DAI</Radio>
-            //               <Radio value={"USDC"}>USDC</Radio>
-            //             </Radio.Group>
-            //           </div>
-            //         </div>
-            //         <div className="auto-flex">
-            //           <div className="repayment-structure raleway raleway-semi-bold-black-18px">
-            //             Repayment Structure
-            //           </div>
-            //           <p className="text-1 raleway raleway-normal-black-14px">
-            //             Decide whether you want it to be a full donation, or
-            //             receive back part of your funds.
-            //           </p>
-  
-            //           <div className="auto-flex1">
-            //             <div className="number-1 raleway raleway-bold-black-14px">0</div>
-  
-  
-            //             <div className="number-2 raleway raleway-bold-black-14px">50</div>
-            //           </div>
-  
-            //           <div className="repayment-percent-number raleway raleway-normal-black-14px">
-            //             {`${values.repaymentPercent} % Repayment Percent`}
-            //           </div>
-            //         </div>
-            //         <div className="auto-flex">
-            //           <div className="your-return raleway raleway-semi-bold-black-18px">
-            //             Your Return
-            //           </div>
-            //           <p className="text-2 raleway raleway-normal-black-14px">
-            //             This is how much you will receive back from your funds.
-            //             Plus interest!
-            //           </p>
-            //           <div>
-            //             <div className="rectangle-621-1"></div>
-            //             <div className="price-delegate raleway raleway-bold-black-14px">{`${(
-            //               (values.repaymentPercent / 100) *
-            //               values.tokenAmount
-            //             ).toFixed(0)} USD`}</div>
-            //           </div>
-            //         </div>
-            //       </div>
-            //       <div className="submit-button-container">
-            //         <button type="submit" className="submit-button">
-            //           Delegate & Support!
-            //         </button>
-            //       </div>
-            //     </div>
-  
-            //     <div className="message-container">
-            //       <div className="success-font">{null}</div>
-            //     </div>
-            //   </>
