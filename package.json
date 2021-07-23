@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@textile/hub": "^6.2.0",
     "antd": "^4.16.6",
     "ethers": "^5.4.1",
     "formik": "^2.2.9",

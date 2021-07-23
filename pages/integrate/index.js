@@ -2,20 +2,17 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { createPartnersAgreement, validateMumbaiNet } from '../../api/contracts';
 import { openNotification } from "../../utils/common-functions";
-import VerifyOwnershipModal from "../../components/VerifyOwnershipModal";
 import PartnersAgreementTemplateOptions from '../../components/PartnersAgreementTemplateOptions';
 
 const Integrate = () => {
-    const [showModal, setShowModal] = useState(false);
     const [selectedTemplate, setSelectedTemplate] = useState(null);
     const [templateOptions, setTemplateOptions] = useState(null);
     const [userUnselectedTemplate, setUserUnselectedTemplate] = useState(false);
-    let userContractAddress = '';
+    
 
-    const toggleModal = (address) => {
-        userContractAddress = address;
-        setShowModal(!showModal)
-    };
+    const handleSubmit = () => {
+
+    }
 
     const createAgreement = async () => {
         // console.log('creating partners agreement....');
@@ -53,11 +50,18 @@ const Integrate = () => {
 
         if (selectedTemplate === 'open-source') {
             setTemplateOptions(openSource);
+            localStorage.setItem('header', 'Open-Source & DeFi');
+            localStorage.setItem('imageUrl', 'https://hub.textile.io/ipfs/bafkreiaks3kjggtxqaj3ixk6ce2difaxj5r6lbemx5kcqdkdtub5vwv5mi');
         } else if (selectedTemplate === 'art') {
             setTemplateOptions(art);
+            localStorage.setItem('header', 'Art, Events & NFTs');
+            localStorage.setItem('imageUrl', 'https://hub.textile.io/ipfs/bafkreigxry2ojoqmfs5wo5ijyzkdsmsyb7yfcjokiegkkhokca2wiltsdu');
         } else if (selectedTemplate === 'local') {
             setTemplateOptions(local);
+            localStorage.setItem('header', 'Local Projects & DAOs');
+            localStorage.setItem('imageUrl', 'https://hub.textile.io/ipfs/bafkreibaxbmskevzm6wk7gzmuahvzjghmal2lanlbjabnzn7i5posmehem');
         }
+        
     }, [selectedTemplate]);
 
     return (
@@ -83,6 +87,7 @@ const Integrate = () => {
 
           <div className="integrate-template-content">
             {templateOptions === null || userUnselectedTemplate ? 
+            <>
             <div className="integrate-project-types">
                 <div className='template-card card-white' onClick={() => setSelectedTemplate('open-source')}>
                     <div className="top-card">
@@ -131,7 +136,35 @@ const Integrate = () => {
 
                     <Image className="line-26" src='/geometric-card-line-break.png' alt="line" width="40" height="2"/>
                 </div>
-            </div> :
+            </div>
+                    <div className="bottom-row">
+                    <div className="bootstrap-button">
+                        <p>Bootstrap your Community Economy</p>
+                    </div>
+  
+                    <div className="integrate-button-panel">
+                        <button>
+                            <p>Start from Scratch</p>
+                            <Image  src='/paper.svg' alt="white sheet of paper" width="40" height="40"/>
+                        </button>
+  
+                        <button 
+                        // onClick={toggleModal} 
+                        className="importYourContract">
+                            <p>Import your Contract</p>
+                            <Image  src='/import-contract.svg' alt="black sheet of paper" width="40" height="40"/>
+                        </button>
+                    </div>
+  
+                    <button className="integrate-deploy" id="integrate-deploy"
+                    // onClick={handleSubmit}
+                    // 'window' is undefined when I call Mumbai
+                    >
+                        Sign & Deploy 🚀
+                    </button>
+  
+                  </div>
+                  </> :
 
             <PartnersAgreementTemplateOptions 
                 headerImage= {templateOptions.imageSrc}
@@ -140,33 +173,9 @@ const Integrate = () => {
                 undoTemplateOption={setUserUnselectedTemplate}
             /> 
         }
-            <div className="bootstrap-button">
-                <p>Bootstrap your Community Economy</p>
-            </div>
-
-            <div className="integrate-button-panel">
-                <button>
-                    <p>Start from Scratch</p>
-                    <Image  src='/paper.svg' alt="white sheet of paper" width="40" height="40"/>
-                </button>
-
-                <button onClick={toggleModal} className="importYourContract">
-                    <p>Import your Contract</p>
-                    <Image  src='/import-contract.svg' alt="black sheet of paper" width="40" height="40"/>
-                </button>
-            </div>
-
-            <button className="integrate-deploy" id="integrate-deploy"
-            onClick={createAgreement}
-            // 'window' is undefined when I call Mumbai
-            >
-                Sign & Deploy 🚀
-            </button>
-
           </div>
         </div>
       </main>
-      { showModal ? <VerifyOwnershipModal key={'verify'} toggleModal={toggleModal} /> : null}
     </div>
     )
 }
