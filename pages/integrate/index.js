@@ -7,30 +7,30 @@ const Integrate = () => {
     const [selectedTemplate, setSelectedTemplate] = useState(null);
     const [templateOptions, setTemplateOptions] = useState(null);
     const [userUnselectedTemplate, setUserUnselectedTemplate] = useState(false);
-
-    const handleSubmit = () => {
-
-    }
+    const [key, setKey] = useState('');
 
     const signAndDeploy = async () => {
-       
-        const newAgreement = await createPartnersAgreement(selectedTemplate);
+        const partnersKey = await createPartnersAgreement(selectedTemplate);
+        setKey(partnersKey);
     }
 
     useEffect(() => {
         const openSource = {
             imageSrc: '/opensource-defi-white.png',
             header: 'Open-Source & DeFi',
-            description: 'For researchers & web3, open-source teams, that innovate in a liberal fashion - for a more sustainable, meritocratic world.'}
+            description: 'For researchers & web3, open-source teams, that innovate in a liberal fashion - for a more sustainable, meritocratic world.'
+        }
         const art = {
             imageSrc: '/art-nft-white.png',
             header: 'Art, Events & NFTs',
-            description: 'Art movements, writers & creatives of all kind who use Art & provable ownership for purer forms of human interaction.'}
+            description: 'Art movements, writers & creatives of all kind who use Art & provable ownership for purer forms of human interaction.'
+        }
         const local = {
             imageSrc: '/local-dao-white.png',
             header: 'Local Projects & DAOs',
-            description: 'From support for people in need, to innovative local hubs to get together & create something greater than oneself.'}
-        
+            description: 'From support for people in need, to innovative local hubs to get together & create something greater than oneself.'
+        }
+
         setUserUnselectedTemplate(false);
 
         if (selectedTemplate === 0) {
@@ -46,7 +46,7 @@ const Integrate = () => {
             localStorage.setItem('header', 'Local Projects & DAOs');
             localStorage.setItem('imageUrl', 'https://hub.textile.io/ipfs/bafkreibaxbmskevzm6wk7gzmuahvzjghmal2lanlbjabnzn7i5posmehem');
         }
-        
+
     }, [selectedTemplate]);
 
     return (
@@ -135,18 +135,18 @@ const Integrate = () => {
 
                                         <button
                                             // onClick={toggleModal} 
+                                            type='button'
                                             className="importYourContract">
                                             <p>Import your Contract</p>
                                             <Image src='/import-contract.svg' alt="black sheet of paper" width="40" height="40" />
                                         </button>
                                     </div>
 
-                                    <button className="integrate-deploy" id="integrate-deploy"
+                                    <button className="integrate-deploy" id="integrate-deploy" type='submit'
                                         onClick={signAndDeploy}
                                     >
                                         Sign & Deploy 🚀
                                     </button>
-
                                 </div>
                             </> :
 
@@ -161,6 +161,19 @@ const Integrate = () => {
                     </div>
                 </div>
             </main>
+            {key ? (<div id="topDiv">
+                            <div id="modalWindow">
+                                <div className="modal-window-child">
+                                    <div className="wallet-header">
+                                        <h2 style={{ textDecoration: "underline" }}>Partners Key: </h2>
+                                    </div>
+                                    <div className="wallet-header">
+                                        <p style={{ textDecoration: "underline", color: 'white' }}>{key} </p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>) : undefined}
         </div>
     )
 }

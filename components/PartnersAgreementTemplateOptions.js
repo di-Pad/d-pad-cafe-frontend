@@ -139,7 +139,7 @@ const PartnersAgreementTemplateOptions = (props) => {
                   <Image src='/paper.svg' alt="white sheet of paper" width="40" height="40" />
                 </button>
 
-                <button onClick={toggleModal} className="importYourContract">
+                <button onClick={toggleModal} className="importYourContract" type='button'>
                   <p>Import your Contract</p>
                   <Image src='/import-contract.svg' alt="black sheet of paper" width="40" height="40" />
                 </button>

@@ -1,5 +1,6 @@
 import { ethers } from 'ethers'
 import { pushJSONDocument }  from '../utils/textile.hub';
+import { generatePartnersKey } from './api';
 
 var communityABI = require('../contracts/abi/ICommunity.abi.json').abi;
 var partnersRegistryABI = require('../contracts/abi/PartnersRegistry.abi.json').abi;
@@ -77,14 +78,16 @@ export const createPartnersAgreement = async (template) => {
     rolesCount,
     localStorage.getItem('numberOfActions'), // number of Actions,
     localStorage.getItem('contractAddress'), // contract address
-    100 // members
+    100 // members,
   );
 
-  consol.log(createTx);
+  console.log(createTx);
 
 
   const result = await createTx.wait();
   const { events } = result;
+  console.log(events);
+
   const event = events.find(
     e => e.event === 'PartnersAgreementCreated',
   );
@@ -92,10 +95,11 @@ export const createPartnersAgreement = async (template) => {
   const partnersAgreementAddress = event.args[0].toString();
   const communityAddress = event.args[1].toString();
 
-  consol.log(createTx);
-  console.log(event)
   console.log('partnersAgreementAddress', partnersAgreementAddress)
   console.log('communityAddress', communityAddress)
+  const key = await generatePartnersKey(communityAddress, partnersAgreementAddress);
+  console.log('key', key);
+  return key;
 }
 
 export const createNewUser = async () => {
