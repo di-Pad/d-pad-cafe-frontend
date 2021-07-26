@@ -158,7 +158,10 @@ const Integrate = () => {
                                 undoTemplateOption={setUserUnselectedTemplate}
                             />
                         }
-                        {key ? (<div id="topDiv">
+                    </div>
+                </div>
+            </main>
+            {key ? (<div id="topDiv">
                             <div id="modalWindow">
                                 <div className="modal-window-child">
                                     <div className="wallet-header">
@@ -171,9 +174,6 @@ const Integrate = () => {
                                 </div>
                             </div>
                         </div>) : undefined}
-                    </div>
-                </div>
-            </main>
         </div>
     )
 }

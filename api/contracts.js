@@ -95,14 +95,10 @@ export const createPartnersAgreement = async (template) => {
   const partnersAgreementAddress = event.args[0].toString();
   const communityAddress = event.args[1].toString();
 
-  consol.log(createTx);
-  console.log(event);
   console.log('partnersAgreementAddress', partnersAgreementAddress)
   console.log('communityAddress', communityAddress)
   const key = await generatePartnersKey(communityAddress, partnersAgreementAddress);
   console.log('key', key);
-  consol.log(createTx);
-  console.log(event)
   return key;
 }
 
