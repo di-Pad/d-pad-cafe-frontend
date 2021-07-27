@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
-import QRModal from '../components/QRModal';
-import NewAccountModal from '../components/NewAccountModal';
-import { FaPlusCircle } from 'react-icons/fa';
 // import { generateNonce } from '../api/users'
 
 const VerifyOwnershipModal = (props) => {
-    const [nonce, setNonce] = useState();
+    // const [nonce, setNonce] = useState();
 
     const closeQR = () => {
         const address = document.getElementById('address').value;
@@ -40,7 +36,7 @@ const VerifyOwnershipModal = (props) => {
 
                         <p>Please note that you need to sign with the <span className="heavy">same wallet</span> you used to deploy.</p>
 
-                        <button type="submit">Save Address</button>
+                        <button type="submit" onClick={closeQR}>Save Address</button>
 
                         </form>
                     </div>
