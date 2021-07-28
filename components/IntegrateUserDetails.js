@@ -53,8 +53,6 @@ const IntegrateUserDetails = (props) => {
 
         reader.onload = () => {
             setAvatarUrl(reader.result)
-            // const imagePreviewContainer = document.getElementById('avatar-img');
-            // imagePreviewContainer.style.backgroundImage = `url(${reader.result})`;
         };
 
         reader.onerror = (err) => {
@@ -75,6 +73,13 @@ const IntegrateUserDetails = (props) => {
         <>
             <Formik
                 initialValues={{
+                    skillOne: '',
+                    skillTwo: '',
+                    skillThree: '',
+                    numberOfActions: 10,
+                    avatar: '',
+                    description: '',
+                    name: ''
                 }}
 
                 validate={(values) => {
@@ -90,13 +95,13 @@ const IntegrateUserDetails = (props) => {
                 }}
 
                 onSubmit={async (values) => {
-                    console.log(values);
                     console.log('aaaaaaa');
                     localStorage.setItem('skillOne', values.skillOne)
                     localStorage.setItem('skillTwo', values.skillTwo)
                     localStorage.setItem('skillThree', values.skillThree)
-                    if (!values.numberOfActions)
+                    if (!values.numberOfActions) {
                         values.numberOfActions = 10;
+                    }
                     localStorage.setItem('numberOfActions', values.numberOfActions)
                     // const partnersKey = await createPartnersAgreement(props.selectedTemplate);
                     setKey('partnersKey');
@@ -140,7 +145,7 @@ const IntegrateUserDetails = (props) => {
                                 <div className="avatar-field">
                                     <div>
                                         <h4>Avatar</h4>
-                                        <TextArea
+                                        {/* <TextArea
                                             id="avatar"
                                             name="avatar"
                                             type="text"
@@ -148,8 +153,9 @@ const IntegrateUserDetails = (props) => {
                                             placeholder="Your public Logo - that's how others will know it's really you"
                                             value={values.avatar}
                                             required
-                                        >
-                                        </TextArea>
+                                        > 
+                                        </TextArea> */}
+                                        <p>Your public Logo - that's how others will know it's really you</p>
                                     </div>
                                     
                                     {!avatarUrl ? <label htmlFor="file" > 
@@ -247,7 +253,9 @@ const IntegrateUserDetails = (props) => {
                                         <div className="auto-flex1">
 
                                             <div className="bar-chart-first-container">
-                                                <input className="bar-chart-container" name="numberOfActions" onBlur={handleBlur} type="range" id="numberOfActions" value={values.numberOfActions} min="10" max="100"></input>
+                                                <input className="bar-chart-container" name="numberOfActions" onBlur={handleBlur} 
+                                                       onChange={handleChange} type="range" id="numberOfActions" value={values.numberOfActions} 
+                                                       min="10" max="100"></input>
                                                 <div className="bar-chart-metrics">
                                                     <p>10</p>
                                                     <p>100</p>
@@ -283,7 +291,7 @@ const IntegrateUserDetails = (props) => {
 
                                 </div>
 
-                                {showModal ? <VerifyOwnershipModal key={'verify'} toggleModal={toggleModal} /> : null}
+                                
 
                                 {key ? <div id="topDiv">
                                     <div id="modalWindow">
@@ -302,7 +310,9 @@ const IntegrateUserDetails = (props) => {
                         </div>
                     </Form>
                 )}
+                
             </Formik>
+            {showModal ? <VerifyOwnershipModal key={'verify'} toggleModal={toggleModal} /> : null}
         </>
     )
 }
