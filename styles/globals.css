@@ -107,6 +107,9 @@ a {
   margin: 0 auto;
 }
 
+#role {
+  color: white;
+}
 .heavy {
   font-style: italic;
   font-weight: bold;
