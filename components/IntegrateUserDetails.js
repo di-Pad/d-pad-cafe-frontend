@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Form, Input, Slider } from "formik-antd";
 import 'antd/dist/antd.css';
 import { Formik } from "formik";
 import VerifyOwnershipModal from "./VerifyOwnershipModal";
 import { createPartnersAgreement } from '../api/contracts';
+import { pushImage } from '../api/textile.hub';
 
 const IntegrateUserDetails = (props) => {
     const [showModal, setShowModal] = useState(false);
     const [key, setKey] = useState('');
+    const [avatarUrl, setAvatarUrl] = useState(null);
     const { TextArea } = Input;
     let userContractAddress = '';
 
@@ -26,42 +28,39 @@ const IntegrateUserDetails = (props) => {
         setShowModal(!showModal)
     };
 
-    const onInputChange = async (files) => {
+    const onInputChange = async (files) => {        
         if (files.length === 1) {
             const imageFile = files[0];
-            if (!this.checkFileSize(imageFile.size)) {
+            if (!checkFileSize(imageFile.size)) {
                 console.error('Maximum file size exceeded. Max file size is: ' + MAX_UPLOAD_SIZE);
                 return false;
             }
-            else if (!this.checkFileType(imageFile.type)) {
+            else if (!checkFileType(imageFile.type)) {
                 console.error('File type is not allowed');
                 return false;
             }
-            // localStorage.setItem('image', imageFile);
             const imageUrl = await pushImage(imageFile);
             localStorage.setItem('imageUrl', imageUrl);
-            this.uploadImage(imageFile);
+            uploadImage(imageFile);
         } else {
             console.error(files.length === 0 ? 'No image uploaded' : 'You can oonly upload one image at a time');
             return false;
         }
     }
 
-    const uploadImage = (file) => {
+    const uploadImage = (files) => {
         const reader = new FileReader();
 
         reader.onload = () => {
-            const imagePreviewContainer = this.elementHost.shadowRoot.querySelector('#image-preview');
-            imagePreviewContainer.style.backgroundImage = `url(${reader.result})`;
-
-            console.log('uploading finished, emitting an image blob to the outside world');
-            this.onUploadCompleted.emit(file);
+            setAvatarUrl(reader.result)
+            // const imagePreviewContainer = document.getElementById('avatar-img');
+            // imagePreviewContainer.style.backgroundImage = `url(${reader.result})`;
         };
 
         reader.onerror = (err) => {
             console.error('something went wrong...', err);
         };
-        reader.readAsDataURL(file);
+        reader.readAsDataURL(files);
     }
 
     const checkFileSize = (size) => {
@@ -152,18 +151,19 @@ const IntegrateUserDetails = (props) => {
                                         >
                                         </TextArea>
                                     </div>
-                                    {/* <input type="file" name="files[]" id="file" accept="image/*"> */}
-
-
-                                    <div
-                                    // onClick={onInputChange($event.target.files)}
-                                    >
-                                        <Image className="line-26" src="https://skillwallet-demo-images.s3.us-east-2.amazonaws.com/upload_avatar.svg" alt="line" width="40" height="20" />
-                                        <p>.svg , .png, or .jpg</p>
+                                    
+                                    {!avatarUrl ? <label htmlFor="file" > 
+                                        <div className="avatar-upload-div">
+                                            <Image  className="line-26" src="https://skillwallet-demo-images.s3.us-east-2.amazonaws.com/upload_avatar.svg" alt="line" width="40" height="20" />
+                                            <input type="file" name="files[]" id="file" accept="image/*" onChange={(event) => onInputChange(event.target.files)}></input>
+                                            <p>.svg , .png, or .jpg</p>
+                                        </div>
+                                    </label> : 
+                                    <div className="avatar-div">
+                                        <Image  className="line-26" src={avatarUrl} alt="line" width="40" height="40" />
                                     </div>
-                                    {/* </input> */}
+                                    }
                                 </div>
-
 
                                 <div>
                                     <div>
@@ -181,7 +181,6 @@ const IntegrateUserDetails = (props) => {
                                     <p>280 characters left</p>
                                 </div>
                             </div>
-
                         </div>
 
                         <div className="integrate-content">
