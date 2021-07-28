@@ -52,6 +52,7 @@ export const createPartnersAgreement = async (template) => {
   const network = await provider.getNetwork();
   const signer = provider.getSigner();
 
+  console.log(process.env.NEXT_PUBLIC_PARTNERS_REGISTRY_ADDRESS);
   const contract = new ethers.Contract(
     process.env.NEXT_PUBLIC_PARTNERS_REGISTRY_ADDRESS,
     partnersRegistryABI,
@@ -72,6 +73,7 @@ export const createPartnersAgreement = async (template) => {
     rolesCount = 3;
 
   console.log('calling the SC')
+  console.log(url, template, rolesCount, localStorage.getItem('numberOfActions'), localStorage.getItem('contractAddress'))
   const createTx = await contract.create(
     url,
     template,

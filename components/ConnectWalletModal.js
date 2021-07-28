@@ -79,13 +79,13 @@ const ConnectWalletModal = (props) => {
                     modalText={modalText}
                     />
                 : null}
-            { showAccountModal
+            {/* { showAccountModal
                 ? <NewAccountModal
                     key={'newAccount'}
                     closeOnClick={closeQR}
                     modalText={modalText}
                     />
-                : null}
+                : null} */}
         </div>
     );
 }

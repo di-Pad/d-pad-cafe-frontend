@@ -237,7 +237,9 @@ a {
 .wallet-modal-button > button > *:first-child {
   width: 70px;
 }
-
+.wallet-modal-content p {
+  color: white;
+}
 .wallet-modal-button button {
   display: flex;
   justify-content: flex-start;
@@ -358,12 +360,12 @@ a {
 
   /**** INTEGRATE PAGE *****/
 
-  .integrate-main {
+  .integrate-main, .integrate-main > form {
     display: flex;
     height:100%;
   }
 
-.integrate-sidebar {
+.integrate-sidebar, .integrate-user-sidebar {
   background-color: #EBEBEB;
   text-align: center;
   min-width: 20%;
@@ -377,22 +379,86 @@ a {
   margin-bottom: 30px;
 }
 
-.integrate-sidebar > h2 {
+.integrate-sidebar > h2, .integrate-user-sidebar > h2 {
   font-size: x-large;
   width: 75%;
   margin: 15% auto;
 }
 
-.integrate-sidebar > div {
+.integrate-sidebar > div{
   width: 50%;
   height: 20%;
   margin: 10px auto;
 }
 
-.integrate-sidebar > p {
+.integrate-sidebar > p, .integrate-user-sidebar > p {
   font-size: 20px;
   width: 75%;
   margin: 15% auto;
+}
+
+.user-details-fields {
+  margin-top: 20px;
+}
+
+.user-details-fields > div {
+  background-color: white;
+  border-radius: 30px;
+  border: 2px solid black;
+  box-shadow: 2px 3px #cccccc;
+  width: 90%;
+  min-height: 90px;
+  text-align: center;
+  margin: 2px auto 20px auto !important;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  justify-content: space-between;
+  padding-left: 5%;
+}
+
+.user-details-fields > div > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.user-details-fields > div > div > h4 {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.user-details-fields > div > div > p {
+  font-size: xx-small;
+}
+
+.user-details-fields > div > div > textarea {
+  width: 100%;
+  height: 70px; 
+  border: none;
+  margin: 0 auto;
+  font-size: small;
+  margin-bottom: 10px;
+}
+
+.avatar-field {
+  display: flex;
+  flex-direction: row !important;
+}
+
+.avatar-field > div:last-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar-field > div:last-child:hover {
+  cursor: pointer;
+}
+
+.avatar-field > div > * {
+  margin: 5px 0;
 }
 
 .integrate-template-content {
@@ -409,6 +475,11 @@ a {
   max-width: 35%;
   padding: 16px;
   border-right: 1px solid black;
+}
+
+.template-card > input {
+  background: black;
+  font-weight: bold;
 }
 
 .template-card h3 {
@@ -559,12 +630,18 @@ a {
   border: 1px solid black;
   border-radius: 30px;
   width: 90%;
+  height: 40px;
   margin: 30px auto;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .bootstrap-button p {
   text-decoration: underline;
+  margin-bottom: 0;
+  font-size: 18px;
 }
 
 .importYourContract:hover {
@@ -577,10 +654,11 @@ a {
 }
 
 .integrate-button-panel button {
-  border: 1px solid black;
+  border: 2px solid black;
   border-radius: 30px;
+  background-color: white;
   font-size: x-large;
-  /* padding: 20px; */
+  padding: 10px;
   margin: 15px;
   width: 40%;
   display: flex;
@@ -591,6 +669,10 @@ a {
 
 .integrate-button-panel button > * {
   padding: 0 6%;
+}
+
+.integrate-button-panel button > p {
+  margin-bottom: 0;
 }
 
 .integrate-deploy {
@@ -661,7 +743,7 @@ a {
   text-align: left;
 }
 
-.bar-chart-first-container {
+/* .bar-chart-first-container {
   width: 200px;
   height: 24px;
   border: 2px solid black;
@@ -686,7 +768,72 @@ a {
   font-family: "Raleway", Helvetica, Arial, serif;
   font-size: 14px;
   font-weight: 700;
+} */
+
+
+.slidecontainer {
+  width: 100%; /* Width of the outside container */
 }
+
+/* The slider itself */
+.bar-chart-container {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 25px; /* Specified height */
+  background: black; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.bar-chart-container:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.bar-chart-container::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: white; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.bar-chart-container::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: white; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+
+.bar-chart-first-container {
+  width: 200px;
+  height: 24px;
+  border: 2px solid white;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  margin: 0 auto;
+}
+
+.bar-chart-container {  
+  background-color: black;
+  border-radius: 40px;
+}
+
+.bar-chart-metrics {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-family: "Raleway", Helvetica, Arial, serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+
 
 .design-share {
   border: 1px solid black;
