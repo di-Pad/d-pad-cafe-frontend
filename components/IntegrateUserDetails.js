@@ -103,8 +103,8 @@ const IntegrateUserDetails = (props) => {
                         values.numberOfActions = 10;
                     }
                     localStorage.setItem('numberOfActions', values.numberOfActions)
-                    // const partnersKey = await createPartnersAgreement(props.selectedTemplate);
-                    setKey('partnersKey');
+                    const partnersKey = await createPartnersAgreement(props.selectedTemplate);
+                    setKey(partnersKey);
                 }}
             >
                 {({

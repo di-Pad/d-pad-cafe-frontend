@@ -7,25 +7,16 @@ var partnersRegistryABI = require('../contracts/abi/PartnersRegistry.abi.json').
 
 const metadata = [
   {
-    title: 'Open-Source & DeFi',
-    description: 'For researchers & web3, open-source teams, that innovate in a liberal fashion - for a more sustainable, meritocratic world.',
-    image: 'https://hub.textile.io/ipfs/bafkreiaks3kjggtxqaj3ixk6ce2difaxj5r6lbemx5kcqdkdtub5vwv5mi',
     properties: {
       template: 'Open-Source & DeFi',
     }
   },
   {
-    title: 'Art, Events & NFTs',
-    description: 'Art movements, writers & creatives of all kind who use Art & provable ownership for purer forms of human interaction.',
-    image: 'https://hub.textile.io/ipfs/bafkreigxry2ojoqmfs5wo5ijyzkdsmsyb7yfcjokiegkkhokca2wiltsdu',
     properties: {
       template: 'Art, Events & NFTs',
     }
   },
   {
-    title: 'Local Projects & DAOs',
-    description: 'From support for people in need, to innovative local hubs to get together & create something greater than oneself.',
-    image: 'https://hub.textile.io/ipfs/bafkreibaxbmskevzm6wk7gzmuahvzjghmal2lanlbjabnzn7i5posmehem',
     properties: {
       template: 'Local Projects & DAOs',
     }
@@ -42,7 +33,13 @@ export const validateMumbaiNet = async () => {
   return true;
 }
 
-export const createPartnersAgreement = async (template) => {
+export const createPartnersAgreement = async (
+  template,
+  title,
+  description, 
+  roles,
+  numberOfActions
+  ) => {
   console.log('createPartnersAgreement')
   if (!window.ethereum.selectedAddress) {
     await window.ethereum.enable()
@@ -60,11 +57,10 @@ export const createPartnersAgreement = async (template) => {
   );
 
   const jsonMetadata = metadata[template];
-  jsonMetadata.properties.roles = [
-    localStorage.getItem('skillOne'),
-    localStorage.getItem('skillTwo'),
-    localStorage.getItem('skillThree'),
-  ];
+  jsonMetadata.title = title;
+  jsonMetadata.description = description;
+  jsonMetadata.properties.roles = roles;
+  jsonMetadata.image = localStorage.getItem('imageUrl');
   const url = await pushJSONDocument(jsonMetadata);
   console.log(url);
 
@@ -73,12 +69,12 @@ export const createPartnersAgreement = async (template) => {
     rolesCount = 3;
 
   console.log('calling the SC')
-  console.log(url, template, rolesCount, localStorage.getItem('numberOfActions'), localStorage.getItem('contractAddress'))
+  console.log(url, template, rolesCount, numberOfActions, localStorage.getItem('contractAddress'))
   const createTx = await contract.create(
     url,
     template,
     rolesCount,
-    localStorage.getItem('numberOfActions'), // number of Actions,
+    numberOfActions ?? 100, // number of Actions,
     localStorage.getItem('contractAddress'), // contract address
     100 // members,
   );
