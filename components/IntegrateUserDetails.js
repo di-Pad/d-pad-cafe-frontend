@@ -28,7 +28,7 @@ const IntegrateUserDetails = (props) => {
         setShowModal(!showModal)
     };
 
-    const onInputChange = async (files) => {        
+    const onInputChange = async (files) => {
         if (files.length === 1) {
             const imageFile = files[0];
             if (!checkFileSize(imageFile.size)) {
@@ -96,14 +96,16 @@ const IntegrateUserDetails = (props) => {
 
                 onSubmit={async (values) => {
                     console.log('aaaaaaa');
-                    localStorage.setItem('skillOne', values.skillOne)
-                    localStorage.setItem('skillTwo', values.skillTwo)
-                    localStorage.setItem('skillThree', values.skillThree)
-                    if (!values.numberOfActions) {
+                    if (!values.numberOfActions)
                         values.numberOfActions = 10;
-                    }
-                    localStorage.setItem('numberOfActions', values.numberOfActions)
-                    const partnersKey = await createPartnersAgreement(props.selectedTemplate);
+
+                    const partnersKey = await createPartnersAgreement(
+                        props.selectedTemplate,
+                        values.name,
+                        values.description,
+                        [values.skillOne, values.skillTwo, values.skillThree],
+                        values.numberOfActions
+                    );
                     setKey(partnersKey);
                 }}
             >
@@ -157,17 +159,17 @@ const IntegrateUserDetails = (props) => {
                                         </TextArea> */}
                                         <p>Your public Logo - that's how others will know it's really you</p>
                                     </div>
-                                    
-                                    {!avatarUrl ? <label htmlFor="file" > 
+
+                                    {!avatarUrl ? <label htmlFor="file" >
                                         <div className="avatar-upload-div">
-                                            <Image  className="line-26" src="https://skillwallet-demo-images.s3.us-east-2.amazonaws.com/upload_avatar.svg" alt="line" width="40" height="20" />
+                                            <Image className="line-26" src="https://skillwallet-demo-images.s3.us-east-2.amazonaws.com/upload_avatar.svg" alt="line" width="40" height="20" />
                                             <input type="file" name="files[]" id="file" accept="image/*" onChange={(event) => onInputChange(event.target.files)}></input>
                                             <p>.svg , .png, or .jpg</p>
                                         </div>
-                                    </label> : 
-                                    <div className="avatar-div">
-                                        <Image  className="line-26" src={avatarUrl} alt="line" width="40" height="40" />
-                                    </div>
+                                    </label> :
+                                        <div className="avatar-div">
+                                            <Image className="line-26" src={avatarUrl} alt="line" width="40" height="40" />
+                                        </div>
                                     }
                                 </div>
 
@@ -224,7 +226,7 @@ const IntegrateUserDetails = (props) => {
                                             onChange={handleChange}
                                             placeholder="Role/Skill 1"
                                             value={values.skillOne}
-                                            style={{text: 'white'}}
+                                            style={{ text: 'white' }}
                                             required />
                                         <Input
                                             id="role"
@@ -233,7 +235,7 @@ const IntegrateUserDetails = (props) => {
                                             onChange={handleChange}
                                             placeholder="Role/Skill 2"
                                             value={values.skillTwo}
-                                            style={{text: 'white'}}
+                                            style={{ text: 'white' }}
                                             required />
                                         <Input
                                             id="role"
@@ -242,7 +244,7 @@ const IntegrateUserDetails = (props) => {
                                             onChange={handleChange}
                                             placeholder="Role/Skill 3"
                                             value={values.skillThree}
-                                            style={{text: 'white'}}
+                                            style={{ text: 'white' }}
                                             required />
                                     </div>
 
@@ -253,9 +255,9 @@ const IntegrateUserDetails = (props) => {
                                         <div className="auto-flex1">
 
                                             <div className="bar-chart-first-container">
-                                                <input className="bar-chart-container" name="numberOfActions" onBlur={handleBlur} 
-                                                       onChange={handleChange} type="range" id="numberOfActions" value={values.numberOfActions} 
-                                                       min="10" max="100"></input>
+                                                <input className="bar-chart-container" name="numberOfActions" onBlur={handleBlur}
+                                                    onChange={handleChange} type="range" id="numberOfActions" value={values.numberOfActions}
+                                                    min="10" max="100"></input>
                                                 <div className="bar-chart-metrics">
                                                     <p>10</p>
                                                     <p>100</p>
@@ -291,7 +293,7 @@ const IntegrateUserDetails = (props) => {
 
                                 </div>
 
-                                
+
 
                                 {key ? <div id="topDiv">
                                     <div id="modalWindow">
@@ -310,7 +312,7 @@ const IntegrateUserDetails = (props) => {
                         </div>
                     </Form>
                 )}
-                
+
             </Formik>
             {showModal ? <VerifyOwnershipModal key={'verify'} toggleModal={toggleModal} /> : null}
         </>

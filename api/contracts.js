@@ -64,23 +64,18 @@ export const createPartnersAgreement = async (
   const url = await pushJSONDocument(jsonMetadata);
   console.log(url);
 
-  let rolesCount = 2;
-  if(localStorage.getItem('skillThree'))
-    rolesCount = 3;
-
   console.log('calling the SC')
-  console.log(url, template, rolesCount, numberOfActions, localStorage.getItem('contractAddress'))
+  console.log(url, template, numberOfActions, localStorage.getItem('contractAddress'))
   const createTx = await contract.create(
     url,
     template,
-    rolesCount,
-    numberOfActions ?? 100, // number of Actions,
+    roles.length,
+    numberOfActions, // number of Actions,
     localStorage.getItem('contractAddress'), // contract address
     100 // members,
   );
 
   console.log(createTx);
-
 
   const result = await createTx.wait();
   const { events } = result;
