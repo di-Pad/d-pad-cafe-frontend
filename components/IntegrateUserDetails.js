@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
+import React, { useState } from "react";
+import Image from "next/image";
 import { Form, Input, Slider } from "formik-antd";
 import 'antd/dist/antd.css';
 import { Formik } from "formik";
@@ -95,7 +95,6 @@ const IntegrateUserDetails = (props) => {
                 }}
 
                 onSubmit={async (values) => {
-                    console.log('aaaaaaa');
                     if (!values.numberOfActions)
                         values.numberOfActions = 10;
 
@@ -147,17 +146,7 @@ const IntegrateUserDetails = (props) => {
                                 <div className="avatar-field">
                                     <div>
                                         <h4>Avatar</h4>
-                                        {/* <TextArea
-                                            id="avatar"
-                                            name="avatar"
-                                            type="text"
-                                            // onChange={handleChange}
-                                            placeholder="Your public Logo - that's how others will know it's really you"
-                                            value={values.avatar}
-                                            required
-                                        > 
-                                        </TextArea> */}
-                                        <p>Your public Logo - that's how others will know it's really you</p>
+                                        <p>{"Your public Logo - that's how others will know it's really you"}</p>
                                     </div>
 
                                     {!avatarUrl ? <label htmlFor="file" >
