@@ -9,6 +9,11 @@ const Design = () => {
     const [showModal, setShowModal] = useState(false);
     const [activeDistributionButton, setActiveDistributionButton] = useState('');
     const [activeProximityButton, setActiveProximityButton] = useState('');
+    let username = null;
+    if (typeof window !== 'undefined' && localStorage.getItem("username") !== "undefined") {
+        console.log(localStorage.getItem("username") === "undefined")
+        username = localStorage.getItem("username");
+    }
     let userContractAddress = '';
     
     const toggleModal = (address) => {
@@ -60,10 +65,10 @@ const Design = () => {
           <div className="design-sidebar">
             <div className="user-header">
                 <Image src="/d-pad-logo.png" alt="d-pad logo" width="40" height="40"></Image>
-                <h4>_username_</h4>
+                <h4>{username ? username : "Please sign in..."}</h4>
             </div>
 
-            <Image className="line-break" src='/geometric-card-line-break.png' alt="line" width="200" height="2"/>
+            <Image className="line-break header-line" src='/geometric-card-line-break.png' alt="line" width="200" height="2"/>
 
             <div className="design-sidebar-buttons">
                 <div className="pill">

@@ -9,6 +9,12 @@ const Web3Native = () => {
     const [activeProfitButton, setActiveProfitButton] = useState('');
     const [activeDistributionButton, setActiveDistributionButton] = useState('');
     const [activeProximityButton, setActiveProximityButton] = useState('');
+    let username = null;
+    if (typeof window !== 'undefined' && localStorage.getItem("username") !== "undefined") {
+        console.log(localStorage.getItem("username") === "undefined")
+        username = localStorage.getItem("username");
+    }
+    
     
     const buttons = {
         profitPercentage: [
@@ -60,10 +66,10 @@ const Web3Native = () => {
           <div className="profit-sidebar">
             <div className="user-header">
                 <Image src="/d-pad-logo.png" alt="d-pad logo" width="55" height="40"></Image>
-                <h4>_username_</h4>
+                <h4>{username ? username : "Please sign in..."}</h4>
             </div>
 
-            <Image className="line-break" src='/geometric-card-line-break.png' alt="line" width="300" height="2"/>
+            <Image className="line-break header-line" src='/geometric-card-line-break.png' alt="line" width="300" height="2"/>
 
             <div className="profit-sidebar-buttons">
                 <div className="pill">
@@ -113,7 +119,13 @@ const Web3Native = () => {
                         <p>Tot. Profit (%) to share:</p>
 
                         <div className="bar-chart-first-container">
-                            <div className="bar-chart-container"></div>
+                        <input className="bar-chart-container" 
+                        // value={20}
+                        type="range"
+                            // name="numberOfActions" onBlur={handleBlur} 
+                            // onChange={handleChange} type="range" id="numberOfActions" value={values.numberOfActions} 
+                            min="0" max="100"
+                            ></input>
 
                             <div className="bar-chart-metrics">
                                 <p>0</p>
@@ -121,23 +133,7 @@ const Web3Native = () => {
                             </div>
                         </div>
 
-                        {/* <div className="total-profit-buttons">
-                        {
-                            buttons.profitPercentage.map(btn => {
-                                const className= activeProfitButton === btn.name ? "active" : "";
-                                return (
-                                    <button
-                                    className={`${className}`}
-                                    name={btn.name}
-                                    value={btn.value}
-                                    key={btn.id}
-                                    onClick={handleButtonClick}>{btn.name}</button>
-                                )
-                            })
-                        }
-                        </div> */}
-
-                        <h3>Frequency of Distribution</h3>
+                        <h3 className="frequency-h3">Frequency of Distribution</h3>
                         <p>How often would you like the Profit-Sharing distribution to happen? No worries, we&#39;ll optimize if for you,
                             based on the size & growth rate of your Community :)
                         </p>
@@ -159,7 +155,7 @@ const Web3Native = () => {
                         </div>
                     </div>
 
-                    <div className="control-section">
+                    <div className="control-section proximity-buttons">
                         <h3>Interactions&#39; Proximity Level</h3>
 
                         <p>Distribute your Token based on the proximity of the interactions to your protocol!</p>
