@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="942" height="767" viewBox="0 0 942 767">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2, .cls-3 {
+        stroke: none;
+      }
+
+      .cls-3 {
+        fill: #707070;
+      }
+    </style>
+  </defs>
+  <g id="Path_1488" data-name="Path 1488" class="cls-1">
+    <path class="cls-2" d="M 941.5 766.5 L 0.500030517578125 766.5 L 0.500030517578125 0.5 L 941.5 0.5 L 941.5 766.5 Z"/>
+    <path class="cls-3" d="M 1.00006103515625 1 L 1.00006103515625 766 L 941 766 L 941 1 L 1.00006103515625 1 M 6.103515625e-05 0 L 942 0 L 942 767 L 6.103515625e-05 767 L 6.103515625e-05 0 Z"/>
+  </g>
+</svg>
